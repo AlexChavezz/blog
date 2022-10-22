@@ -2,9 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-    images: {
-            unoptimized: true
-        }
+  images: {
+    unoptimized: true
+  },
+  basePath: "./nextjs-pages",
+  assetPrefix: "./nextjs-pages"
 }
 
 module.exports = nextConfig
