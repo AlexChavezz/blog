@@ -7,6 +7,7 @@
 
 .asideSection {
   width: 361px;
+  max-height: 1300px;
   display: flex;
   height: auto;
   flex-direction: column;
@@ -32,13 +33,15 @@
   }
   .asideSection {
     width: 250px;
+    border: 0px solid #ffe;
   }
 }
-/* @media (max-width: 910px) {
+@media (max-width: 888px) {
   .mainContainer {
     flex-direction: column;
   }
   .asideSection {
     border: none;
+    width: 100%;
   }
-} */
+}

@@ -119,3 +119,16 @@
     width: calc(100% - 250px);
   }
 }
+
+@media(max-width: 888px) {
+  .postsSection {
+    width: 100%;
+  }
+}
+
+@media (max-width: 753px) {
+  .morePostTitleContainer {
+    margin: 0px;
+    }
+}
+

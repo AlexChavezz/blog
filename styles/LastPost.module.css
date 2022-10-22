@@ -99,3 +99,38 @@
         width: 500px;
     }
 }
+
+@media (max-width: 888px) {
+    .lastPostInfo {
+        width: 650px;
+        height: 290px;
+    }
+}
+@media (max-width: 753px) {
+    .lastPostInfo {
+        width: 550px;
+        height: 241px;
+    }
+}
+@media (max-width: 652px) {
+    .lastPostInfo {
+        width: 500px;
+        height: 223px;
+    }
+
+}
+
+@media (max-width: 600px) {
+    .lastPostInfo {
+        width: 450px;
+        height: 200px;
+    }
+}   
+
+
+@media (max-width: 550px) {
+    .lastPostInfo {
+        width: 400px;
+        height: 178px;
+    }
+}   

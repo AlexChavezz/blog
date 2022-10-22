@@ -2,9 +2,10 @@
     height: 290px;
     width: 300px;
     border: 1px solid #ccc;
-    padding:20px;
+    padding: 20px;
     margin-top: 73px;
 }
+
 .SuscribeTarget {
     font-family: 'Inter Tight';
     font-size: 13px;
@@ -16,50 +17,78 @@
     font-size: 13px;
     color: #343434;
 }
+
 .SuscribeTitle {
     color: #343434;
     font-family: 'Inter Tight';
     font-size: 18px;
     font-weight: 400;
 }
+
 .SuscribeForm {
     display: flex;
     flex-direction: column;
 }
+
 .SuscribeLabel {
     font-family: 'Inter Tight';
     font-size: 13px;
-    color:#343434;
+    color: #343434;
     margin: 5px 0px;
 }
+
 .SuscribeInput {
     animation: background 200ms ease-in;
-    border: 1px solid transparent; 
-    margin: 5px 0px;  
-    padding:5px;
+    border: 1px solid transparent;
+    margin: 5px 0px;
+    padding: 5px;
     background-color: #ccc;
-    border-radius:5px;
+    border-radius: 5px;
     border: none;
     outline: none;
-    opacity: .5;  
+    opacity: .5;
     color: #343434;
 }
-.SuscribeInput:focus{
+
+.SuscribeInput:focus {
     background-color: #fffe;
     border: 1px solid #ccc;
 }
+
 .SuscribeButton {
     background: transparent;
-    border: 1px solid #ccc; 
+    border: 1px solid #ccc;
     height: 30px;
-    width:120px; 
-    margin-top: 20px;   
+    width: 120px;
+    margin-top: 20px;
 }
 
-@media (max-width: 1095px)
-{
+@media (max-width: 1095px) {
     .SuscribeContainer {
         width: 250px;
         height: 350px;
+    }
+}
+
+@media(max-width: 970px) {
+    .SuscribeContainer {
+        border: none;
+    }
+}
+
+@media(max-width: 888px) {
+    .SuscribeContainer {
+        width: 600px;
+        height: 200px;
+        margin-top: 20px;
+    }
+    .SuscribeInput {
+        width: 300px;
+    }
+}
+
+@media(max-width: 600px) {
+    .SuscribeContainer {
+        width: 100%;
     }
 }

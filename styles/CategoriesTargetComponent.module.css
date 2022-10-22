@@ -6,12 +6,14 @@
     flex-direction: column;
     margin-top: 73px;
 }
+
 .categoriesTitle {
     color: #343434;
     font-family: 'Inter Tight';
     font-size: 18px;
     font-weight: 400;
 }
+
 .Category {
     min-width: 80px;
     height: 20px;
@@ -21,6 +23,7 @@
     cursor: pointer;
     position: relative;
 }
+
 .categoriesContainer {
     width: 100%;
     display: flex;
@@ -31,6 +34,7 @@
 .tagIcon {
     color: #808080;
 }
+
 .closeIcon {
     /* position: absolute;
     right: 0px;
@@ -51,5 +55,28 @@
 @media (max-width: 970px) {
     .CategoriesTargetContainer {
         width: 250px;
+    }
+}
+
+@media(max-width: 888px) {
+    .CategoriesTargetContainer {
+        width: 600px;
+        /* margin-top: 20px; */
+        height: 200px;
+    }
+
+    .categoriesContainer {
+        flex-wrap: nowrap;
+    }
+}
+
+@media (max-width: 600px)
+{
+    .CategoriesTargetContainer
+    {
+        width: 100%;
+    }
+    .categoriesContainer {
+        flex-wrap  : wrap;
     }
 }

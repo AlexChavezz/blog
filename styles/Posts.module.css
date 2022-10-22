@@ -24,3 +24,10 @@
     line-height: 24px;
     color: #CCCCCC;
 }
+
+
+/* @media (max-width: 888px) {
+    .postsContainer {
+        width: 100%;
+    }
+} */

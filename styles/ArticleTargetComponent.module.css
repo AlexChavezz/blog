@@ -67,11 +67,35 @@
 .articleImage {
     object-fit: cover;
     border-radius: 5px;
+    width: 100%;
+    height: 100%;
 }
 
-@media (max-width:1095px)
-{
+@media (max-width:1095px) {
     .articleTargetContainer {
-        width:95%;
+        width: 95%;
+    }
+}
+
+@media (max-width:688px) {
+    .articleTargetContainer {
+        width: 450px;
+        height: 145px;
+    }
+
+    .articleImageContainer {
+        width: 220px;
+        height: 100%;
+        margin: 0px;
+    }
+    .articleImageContainer > span {
+        height: 180px imo !important;
+    }
+    .articleInfoContainer {
+        height: 100%;
+        width: calc(100% - 220px);
+    }
+    .articleImage {
+        width: 316px;
     }
 }
