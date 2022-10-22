@@ -22,3 +22,16 @@
 .aboutTargetSocialImage {
     margin: 10px;
 }
+
+
+@media (max-width: 970px) {
+    .aboutTarget {
+        width: 250px;
+    }
+}
+
+@media (max-width: 910px) {
+    .aboutTarget {
+        /* display: none; */
+    }
+}

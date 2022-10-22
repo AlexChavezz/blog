@@ -47,3 +47,9 @@
         ipaddr
 
 */
+
+@media (max-width: 970px) {
+    .CategoriesTargetContainer {
+        width: 250px;
+    }
+}

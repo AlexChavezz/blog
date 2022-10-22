@@ -99,12 +99,23 @@
 
 */
 
-@media(max-width: 1095px)
-{
+@media(max-width: 1095px) {
   .header {
-    width:900px;
+    width: 900px;
   }
+
   .postsSection {
     width: calc(100% - 300px);
+  }
+}
+
+@media (max-width:970px) {
+  .header {
+    width: 100%;
+    padding: 0px 50px;
+  }
+
+  .postsSection {
+    width: calc(100% - 250px);
   }
 }

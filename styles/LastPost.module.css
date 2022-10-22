@@ -73,13 +73,29 @@
     color: #FFFFFF;
 }
 
-@media(max-width: 1095px)
-{
+@media(max-width: 1095px) {
     .lastPostContainer {
         width: 95%;
     }
+
     .lastPostInfo {
-        width: 95%;
+        width: 570px;
+
         height: 241px;
+    }
+}
+
+@media (max-width: 970px) {
+    .lastPostInfo {
+        width: 580px;
+        height: 220px;
+    }
+    .lastPostContainer {
+        width: 95%;
+    }
+}
+@media (max-width: 934px) {
+    .lastPostInfo {
+        width: 500px;
     }
 }
