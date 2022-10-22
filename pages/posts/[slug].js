@@ -1,8 +1,7 @@
 import Head from "next/head";
 import { getFileBySlug, getFiles } from "../../lib/mdx";
 import { MDXRemote } from "next-mdx-remote";
-import styles from '../../styles/SlagPage.module.css';
-import photoUser from '../../assets/userPhoto.png';
+import styles from '../../styles/SlugPage.module.css';
 import { Header } from "../../components/Header";
 import Image from "next/image";
 
@@ -34,9 +33,9 @@ export default function Post({ source, frontMatter }) {
                     <div className={styles.articleContent}>
                         <MDXRemote {...source} />
                     </div>
-                    <article className={styles.intrestedContainer}>
+                    {/* <article className={styles.intrestedContainer}>
                         <p>Lorem</p>
-                    </article>
+                    </article> */}
 
                 </article>
             </section>
