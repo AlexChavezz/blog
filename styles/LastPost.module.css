@@ -72,3 +72,14 @@
     line-height: 16px;
     color: #FFFFFF;
 }
+
+@media(max-width: 1095px)
+{
+    .lastPostContainer {
+        width: 95%;
+    }
+    .lastPostInfo {
+        width: 95%;
+        height: 241px;
+    }
+}

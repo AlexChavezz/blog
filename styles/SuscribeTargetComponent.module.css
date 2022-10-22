@@ -55,3 +55,11 @@
     width:120px; 
     margin-top: 20px;   
 }
+
+@media (max-width: 1095px)
+{
+    .SuscribeContainer {
+        width: 250px;
+        height: 350px;
+    }
+}

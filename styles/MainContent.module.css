@@ -14,3 +14,11 @@
     border-left: 1px solid #ccc;
 }
 
+@media (max-width: 1095px) {
+    .mainContainer {
+      width: 900px;
+    }
+    .asideSection {
+      width: 300px;
+    }
+  }

@@ -68,3 +68,10 @@
     object-fit: cover;
     border-radius: 5px;
 }
+
+@media (max-width:1095px)
+{
+    .articleTargetContainer {
+        width:95%;
+    }
+}
