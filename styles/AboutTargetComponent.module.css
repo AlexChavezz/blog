@@ -1,0 +1,24 @@
+.aboutTarget {
+    width: 300px;
+    height: 367px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+}
+.aboutTargetImage {
+    width: 120px;
+    height : 120px;
+}
+.aboutTargetName {
+    font-size: 13px;
+    color: #343434;
+    margin-top: 20px;
+} 
+.aboutTargetDescription {
+    font-size: 13px;
+    color: #343434;
+}
+.aboutTargetSocialImage {
+    margin: 10px;
+}

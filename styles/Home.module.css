@@ -1,0 +1,85 @@
+
+/*
+  HEADER COMPONENT
+*/
+
+.header {
+  height: 140px;
+  width: 1029px;
+  display: flex;
+  flex-direction: column;
+  margin: 0px auto;
+}
+.headerMainContainer {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  height: 75px;
+}
+.headerTitle {
+  font-family: 'Inter Tight';
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.inputContainer {
+  position: relative;
+  width: 260px;
+  height:35px;
+}
+.searchInput {
+  width : 100%;
+  height: 100%;
+  background-color:rgba(204, 204, 204, 0.4);
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  font-family: 'Inter Tight';
+  padding-left: 15px;
+}
+.lensIcon {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  margin: auto;
+  right: 5px;
+  height: 24px;
+  width:24px;
+}
+.headerBarNav {
+  width: 100%;
+  height: 65px;
+  display: flex;
+  align-items: center;
+}
+.NavBarLink {
+  color: #ccce;
+  font-family: 'Inter Tight';
+  margin-right: 15px;
+}
+.NavBarLinkActive {
+  color:#808080;
+  margin-right: 15px;
+  font-family: 'Inter Tight';
+}
+
+/*
+
+  MAIN COMPONENT
+
+*/
+
+.postsSection {
+  width: calc(100% - 361px);
+  height: 100%;
+  margin-bottom: 50px;
+}
+
+
+.morePostTitleContainer {
+  font-family: 'Inter Tight';
+  font-size: 20px;
+  padding-bottom: 10px;
+  color: #ccce;
+  margin-top: 50px;
+}

@@ -1,0 +1,49 @@
+.CategoriesTargetContainer {
+    width: 300px;
+    height: 443px;
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    margin-top: 73px;
+}
+.categoriesTitle {
+    color: #343434;
+    font-family: 'Inter Tight';
+    font-size: 18px;
+    font-weight: 400;
+}
+.Category {
+    min-width: 80px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    margin: 20px 10px;
+    cursor: pointer;
+    position: relative;
+}
+.categoriesContainer {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+}
+
+.tagIcon {
+    color: #808080;
+}
+.closeIcon {
+    /* position: absolute;
+    right: 0px;
+    top:0px;
+    width: 15px;
+    height: 15px;
+    cursor: pointer; */
+    color: rgb(221, 79, 79);
+}
+
+/*
+        SERVIDOR HSPC
+
+        ipaddr
+
+*/

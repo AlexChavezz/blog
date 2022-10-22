@@ -1,0 +1,70 @@
+.articleTargetContainer {
+    width: 649px;
+    height: 207px;
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    margin-top: 45px;
+    cursor: pointer;
+}
+
+.articleImageContainer {
+    width: 316px;
+    height: 207px;
+}
+
+.articleInfoContainer {
+    width: calc(100% - 316px);
+    height: 207px;
+    position: relative;
+    padding: 0px 15px;
+}
+
+.articleCategoryText {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    font-family: 'Inter Tight';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    color: #343434;
+    opacity: 0.5;
+    text-transform: uppercase;
+}
+
+.articleTitle {
+    font-family: 'Inter Tight';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #343434;
+    margin: 0px;
+    margin-bottom: 10px;
+    margin-top: 40px;
+}
+
+.articleResume {
+    font-family: 'Inter Tight';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+
+    color: #343434;
+}
+
+.articleDate {
+    font-family: 'Inter Tight';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    color: #343434;
+}
+
+.articleImage {
+    object-fit: cover;
+    border-radius: 5px;
+}

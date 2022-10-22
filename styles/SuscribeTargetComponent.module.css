@@ -1,0 +1,57 @@
+.SuscribeContainer {
+    height: 290px;
+    width: 300px;
+    border: 1px solid #ccc;
+    padding:20px;
+    margin-top: 73px;
+}
+.SuscribeTarget {
+    font-family: 'Inter Tight';
+    font-size: 13px;
+    color: #343434;
+}
+
+.SuscribeText {
+    font-family: 'Inter Tight';
+    font-size: 13px;
+    color: #343434;
+}
+.SuscribeTitle {
+    color: #343434;
+    font-family: 'Inter Tight';
+    font-size: 18px;
+    font-weight: 400;
+}
+.SuscribeForm {
+    display: flex;
+    flex-direction: column;
+}
+.SuscribeLabel {
+    font-family: 'Inter Tight';
+    font-size: 13px;
+    color:#343434;
+    margin: 5px 0px;
+}
+.SuscribeInput {
+    animation: background 200ms ease-in;
+    border: 1px solid transparent; 
+    margin: 5px 0px;  
+    padding:5px;
+    background-color: #ccc;
+    border-radius:5px;
+    border: none;
+    outline: none;
+    opacity: .5;  
+    color: #343434;
+}
+.SuscribeInput:focus{
+    background-color: #fffe;
+    border: 1px solid #ccc;
+}
+.SuscribeButton {
+    background: transparent;
+    border: 1px solid #ccc; 
+    height: 30px;
+    width:120px; 
+    margin-top: 20px;   
+}

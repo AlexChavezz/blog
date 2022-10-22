@@ -1,0 +1,90 @@
+.mainContentContainer {
+    width: 1029px;
+    /* height: 3000px; */
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.articleContainer {
+    width: 640px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.articleDate {
+    font-family: 'Inter Tight';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #CCCCCC;
+}
+
+.articleTitle {
+    font-family: 'Inter Tight';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+    color: #343434;
+    margin-top: 0px;
+}
+
+.articleAuthor {
+    align-self: flex-start;
+    display: flex;
+    width: 160px;
+    align-items: center;
+    font-family: 'Inter Tight';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    color: #CCCCCC;
+    justify-content: space-between;
+}
+
+.articleContent {
+    font-family: 'Inter Tight';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #808080;
+
+}
+.mainImageContainer {
+
+    margin-bottom: -15px;
+    margin-top: 20px;
+}
+.ImageMain {
+    width: 100%;
+    height: 290px;
+    border-radius: 15px;
+    object-fit: cover;
+}
+.articleContent a {
+    font-family: 'Inter Tight';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #ccce;
+    text-decoration: solid;
+}
+
+.intrestedContainer {
+    width: 640px;
+    height: 100px;
+    margin-top:40px;
+    border-top: 2px solid #ccc;
+}
+
+.articleResume {
+    text-overflow: ellipsis;
+}
