@@ -117,6 +117,9 @@
         width: 500px;
         height: 223px;
     }
+    .lastPostContainer {
+        height: 250px;
+    }
 
 }
 
@@ -132,5 +135,15 @@
     .lastPostInfo {
         width: 400px;
         height: 178px;
+    }
+}   
+
+@media (max-width: 442px) {
+    .lastPostInfo {
+        width: 300px;
+        height: 133px;
+    }
+    .mainImage {
+        border-radius: 8px;
     }
 }   

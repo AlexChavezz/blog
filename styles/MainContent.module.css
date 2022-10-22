@@ -25,23 +25,31 @@
   }
 }
 
-@media(max-width: 970px)
-{
+@media(max-width: 970px) {
   .mainContainer {
     width: 100%;
     padding: 0px 50px;
   }
+
   .asideSection {
     width: 250px;
     border: 0px solid #ffe;
   }
 }
+
 @media (max-width: 888px) {
   .mainContainer {
     flex-direction: column;
   }
+
   .asideSection {
     border: none;
     width: 100%;
+  }
+}
+
+@media (max-width: 554px) {
+  .mainContainer {
+    padding: 0px 20px;
   }
 }
