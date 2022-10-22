@@ -90,5 +90,6 @@
 @media(max-width: 600px) {
     .SuscribeContainer {
         width: 100%;
+        padding: 0px;
     }
 }

@@ -129,8 +129,9 @@
 @media (max-width: 753px) {
   .morePostTitleContainer {
     margin: 0px;
-    }
+  }
 }
+
 @media (max-width: 554px) {
   .header {
     padding: 0px 20px;
@@ -141,6 +142,16 @@
 @media (max-width: 442px) {
   .headerMainContainer {
     flex-direction: column;
+    margin-bottom: 40px;
+  }
+
+  .searchInput {
+    padding: 10px;
+  }
+  .postsSection {
+    margin-bottom: 0px;
+  }
+  .morePostTitleContainer {
+    font-size: 16px;
   }
 }
-

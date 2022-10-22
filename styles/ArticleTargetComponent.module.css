@@ -123,9 +123,10 @@
 @media (max-width: 442px) {
     .articleTargetContainer {
         width: 300px;
-        height: 135px;
+        height: 98px;
+        margin-bottom: 30px;
+        margin-top:0px;
     }
-
     .articleImageContainer {
         width: 150px;
         height: 100%;
@@ -138,5 +139,17 @@
     .articleImage {
         width: 316px;
     }
-
+    .articleCategoryText {
+        font-size: 12px;
+        line-height: 15px;
+        right: 10px;
+    }
+    .articleTitle {
+        font-size: 15px;
+        line-height: 18px;
+    }
+    .articleDate {
+        font-size: 10px;
+        line-height: 12px;
+    }
 }

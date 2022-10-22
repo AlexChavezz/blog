@@ -75,8 +75,13 @@
     .CategoriesTargetContainer
     {
         width: 100%;
+        padding: 0px;
+        border-top: 1px solid #ccc;
     }
     .categoriesContainer {
         flex-wrap  : wrap;
+    }
+    .CategoriesTargetContainer {
+        padding-top: 20px;
     }
 }

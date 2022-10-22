@@ -17,3 +17,13 @@
     padding: 0px;
     color: #343434;
 }
+
+
+@media (max-width: 448px) {
+    .footer {
+        height: 50px;
+    }
+    .footerCopy {
+        font-size: 12px;
+    }
+}

@@ -146,4 +146,26 @@
     .mainImage {
         border-radius: 8px;
     }
+    .lastPostAuthor {
+        bottom: 5px;
+        left: 10px;
+    }
+    .imageAuthor {
+        bottom: 5px;
+        right: 5px;
+    }
+    .lastPostTitle {
+        bottom: 30px;
+        left: 10px;
+    }
+    .lastPostcategory {
+        top: 10px;
+        left: 10px;
+    }
+    .lastPostContainer {
+        height: 200px;  
+    }
+    .lastPostTitleContainer {
+        font-size: 16px;
+    }
 }   
