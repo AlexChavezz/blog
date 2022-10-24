@@ -16,7 +16,7 @@
 }
 
 .articleDate {
-    font-family: 'Inter Tight';
+    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -25,7 +25,7 @@
 }
 
 .articleTitle {
-    font-family: 'Inter Tight';
+    font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
     font-size: 30px;
@@ -39,7 +39,7 @@
     display: flex;
     width: 160px;
     align-items: center;
-    font-family: 'Inter Tight';
+    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
@@ -49,7 +49,7 @@
 }
 
 .articleContent {
-    font-family: 'Inter Tight';
+    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -69,7 +69,7 @@
     object-fit: cover;
 }
 .articleContent a {
-    font-family: 'Inter Tight';
+    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 18px;

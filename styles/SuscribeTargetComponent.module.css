@@ -7,20 +7,20 @@
 }
 
 .SuscribeTarget {
-    font-family: 'Inter Tight';
+    font-family: 'Inter';
     font-size: 13px;
     color: #343434;
 }
 
 .SuscribeText {
-    font-family: 'Inter Tight';
+    font-family: 'Inter';
     font-size: 13px;
     color: #343434;
 }
 
 .SuscribeTitle {
     color: #343434;
-    font-family: 'Inter Tight';
+    font-family: 'Inter';
     font-size: 18px;
     font-weight: 400;
 }
@@ -31,7 +31,7 @@
 }
 
 .SuscribeLabel {
-    font-family: 'Inter Tight';
+    font-family: 'Inter';
     font-size: 13px;
     color: #343434;
     margin: 5px 0px;

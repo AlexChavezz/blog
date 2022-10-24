@@ -18,7 +18,6 @@
 }
 
 .headerTitle {
-  font-family: 'Inter Tight';
   font-weight: 400;
   font-size: 20px;
 }
@@ -36,7 +35,7 @@
   border-radius: 5px;
   outline: none;
   border: none;
-  font-family: 'Inter Tight';
+  font-family: 'Inter';
   padding-left: 15px;
 }
 
@@ -59,14 +58,14 @@
 
 .NavBarLink {
   color: #ccce;
-  font-family: 'Inter Tight';
+  font-family: 'Inter';
   margin-right: 15px;
 }
 
 .NavBarLinkActive {
   color: #808080;
   margin-right: 15px;
-  font-family: 'Inter Tight';
+  font-family: 'Inter';
 }
 
 /*
@@ -83,7 +82,7 @@
 
 
 .morePostTitleContainer {
-  font-family: 'Inter Tight';
+  font-family: 'Inter';
   font-size: 20px;
   padding-bottom: 10px;
   color: #ccce;

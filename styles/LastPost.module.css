@@ -4,7 +4,7 @@
 }
 
 .lastPostTitleContainer {
-    font-family: 'Inter Tight';
+    font-family: 'Inter';
     font-size: 20px;
     padding-bottom: 10px;
     color: #ccce;
@@ -28,7 +28,7 @@
     position: absolute;
     bottom: 10px;
     right: 20px;
-    font-family: 'Inter Tight';
+    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 13px;
@@ -40,7 +40,7 @@
     position: absolute;
     bottom: 100px;
     left: 30px;
-    font-family: 'Inter Tight';
+    font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
     font-size: 15px;
@@ -53,7 +53,7 @@
     position: absolute;
     bottom: 60px;
     left: 30px;
-    font-family: 'Inter Tight';
+    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -65,7 +65,7 @@
     position: absolute;
     left: 30px;
     bottom: 20px;
-    font-family: 'Inter Tight';
+    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 13px;

@@ -23,7 +23,7 @@
     position: absolute;
     top: 10px;
     right: 30px;
-    font-family: 'Inter Tight';
+    font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
     font-size: 15px;
@@ -34,7 +34,7 @@
 }
 
 .articleTitle {
-    font-family: 'Inter Tight';
+    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -46,7 +46,7 @@
 }
 
 .articleResume {
-    font-family: 'Inter Tight';
+    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 13px;
@@ -56,7 +56,7 @@
 }
 
 .articleDate {
-    font-family: 'Inter Tight';
+    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 13px;
