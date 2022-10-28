@@ -1,14 +1,26 @@
 import Head from 'next/head'
+import { useState } from 'react';
 import { ArticleTarget } from '../components/ArticleTarget';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header'
 import { LastPost } from '../components/LastPost';
 import { MainContent } from '../components/MainContent';
+import { SuscribeAlert } from '../components/SuscribedAlert';
 import { getAllFilesMetadata, getLastPostMetaData } from '../lib/mdx';
 import styles from "../styles/Home.module.css";
 
 
-export default function Home( { posts, lastPost } ) {
+export default function Home({ posts, lastPost }) {
+
+  const [showSuscribeAlert, setShowSuscribeAlert] = useState(false);
+
+  const handleSuscribe = () => {
+    setShowSuscribeAlert(true);
+    setTimeout(() => {
+      setShowSuscribeAlert(false);
+    }, 2000)
+  }
+
   return (
     <div>
       <Head>
@@ -17,17 +29,20 @@ export default function Home( { posts, lastPost } ) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <MainContent>
+      <MainContent handleSuscribe={handleSuscribe}>
+        {
+          showSuscribeAlert && <SuscribeAlert />
+        }
         <section className={styles.postsSection}>
-          <LastPost {...lastPost}/>
+          <LastPost {...lastPost} />
           <article>
-          <div className={styles.morePostTitleContainer}>
-                <h3>
-                   More Posts
-                </h3>
+            <div className={styles.morePostTitleContainer}>
+              <h3>
+                More Posts
+              </h3>
             </div>
             {
-              posts.map((post) => <ArticleTarget {...post} key={post.slug} />              )
+              posts.map((post) => <ArticleTarget {...post} key={post.slug} />)
             }
           </article>
         </section>
@@ -37,7 +52,7 @@ export default function Home( { posts, lastPost } ) {
   )
 }
 
-export async function getStaticProps(){
+export async function getStaticProps() {
   const posts = await getAllFilesMetadata();
   const lastPost = await getLastPostMetaData();
   return {
