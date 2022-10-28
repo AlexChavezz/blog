@@ -10,3 +10,7 @@ PENDIENTES
 - [ ] SECCION ADICIONAL EN CADA POST QUE MUESTRE RESULTADOS RELACIONADOS CON EL POST 
 - [ ] BUSCADOR DE POST FUNCIONE
 
+IDEAS PARA POSTS 
+
+variables de entorno en azure app service
+despliege en app services usando github actions
