@@ -33,7 +33,7 @@ export default function Posts({ posts, category }) {
             <MainContent>
                 <section className={styles.postsContainer}>
                     SELECT A CATEGORY
-                    <article className={styles.caategoriesContainer}>
+                    <article className={styles.categoriesContainer}>
                         <Category
                             category="AWS"
                         />
