@@ -3,6 +3,10 @@ import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { MainContent } from "../../components/MainContent";
 import styles from '../../styles/About.module.css';
+import photo from '../../assets/userPhoto.png';
+import Image from "next/image";
+import { SocialNetworks } from "../../components/SocialNetworks";
+
 
 export default function About() {
     return (
@@ -15,6 +19,36 @@ export default function About() {
             <Header />
             <MainContent>
                 <section className={styles.aboutContainer}>
+                    <h4 className={styles.greeting}>Hey There!</h4>
+                    <article className={styles.me}>
+                        <div className={styles.mePhotoContainer}>
+                            <Image src={photo} alt="me" width={150} height={150}/>
+                        </div>
+                        <div className={styles.meInfoContainer}>
+                            <p className={styles.meInfoText}>
+                                Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book. It usually begins with:
+
+                                “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”
+                            </p>
+                        </div>
+                    </article>
+                    <p style={{ margin: "0px" }} className={styles.meInfoText}>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book. It usually begins with:
+
+                        “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”
+                        The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn't distract from the layout. A practice not without controversy, laying out pages with meaningless filler text can be very useful when the focus is meant to be on design, not content.
+
+                        The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software. Today it's seen all around the web; on templates, websites, and stock designs. Use our generator to get your own, or read on for the authoritative history of lorem ipsum.</p>
+                    <span className={styles.meInfoFooter}>
+                        Do you want to see more about my work?
+                        <br />
+                        Look at my portfolio <a className={styles.link} href={"https://www.alexisdev.tech"} target="__blank"> Here!</a>
+                    </span>
+                    <span className={styles.meInfoFooter}>
+                        Contactamos?
+                        <br />
+                        <br />
+                        <SocialNetworks />
+                    </span>
 
                 </section>
             </MainContent>

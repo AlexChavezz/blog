@@ -1,8 +1,7 @@
 import Image from 'next/future/image';
-import styles from '../../styles/AboutTargetComponent.module.css';
 import userPhoto from '../../assets/userPhoto.png';
-import linkedinImage from '../../assets/linkedin.svg';
-import mailImage from '../../assets/gmail.svg';
+import { SocialNetworks } from '../SocialNetworks';
+import styles from '../../styles/AboutTargetComponent.module.css';
 
 export const AboutTarget = () => {
     return (
@@ -19,25 +18,7 @@ export const AboutTarget = () => {
                 softaware me gusta mucho aprender y compartir mis concociemientos con los demas.
                 ¿Conectamos?
             </p>
-            <div>
-                <a href="">
-                    <Image
-                        src={mailImage}
-                        className={styles.aboutTargetSocialImage} 
-                        alt="gmail"
-                        width={25}
-                        height={25}
-                    />
-                </a>
-                <a href="https://www.linkedin.com/in/alexiscontreraschavez/" target="__blank">
-                    <Image
-                        src={linkedinImage}
-                        className={styles.aboutTargetSocialImage} alt="linkedin"
-                        width={25}
-                        height={25}
-                    />
-                </a>
-            </div>
+          <SocialNetworks />
         </section>
     );
 }

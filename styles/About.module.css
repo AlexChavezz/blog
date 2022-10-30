@@ -1,3 +1,73 @@
+.greeting {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 36px;
+    color: #343434;
+}
+
 .aboutContainer {
     width: calc(100% - 361px);
+}
+
+.me {
+    display: flex;
+}
+
+.mePhotoContainer {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.meInfoContainer {
+    width: 70%;
+    padding: 10px;
+}
+
+.meInfoText {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 15px;
+    line-height: 18px;
+    color: #808080;
+}
+
+.meInfoFooter {
+    display: block;
+    margin-top: 40px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 15px;
+    line-height: 18px;
+    color: #808080;
+}
+
+.link {
+    color: purple;
+}
+
+@media (max-width: 888px) {
+    .me {
+        display: block;
+    }
+    .aboutContainer {
+        width: 100%;
+    }
+    .mePhotoContainer {
+        width: 100%;
+    }
+    .meInfoContainer {
+        width: 100%;
+    }
+}
+
+@media (max-width: 520px) {
+    .greeting {
+        font-size: 20px;
+    }
 }
