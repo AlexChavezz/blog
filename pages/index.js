@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ArticleTarget } from '../components/ArticleTarget';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header'
@@ -13,6 +13,15 @@ import styles from "../styles/Home.module.css";
 export default function Home({ posts, lastPost }) {
 
   const [showSuscribeAlert, setShowSuscribeAlert] = useState(false);
+
+  // useEffect(() => {
+  //   window.fetch('http://localhost:3000/api/home', { method: 'GET' })
+  //     .then(response => response.json())
+  //     .then(console.log)
+  //     .catch((err) => {
+  //       console.log(err);
+  //     })
+  // }, [])
 
   const handleSuscribe = () => {
     setShowSuscribeAlert(true);

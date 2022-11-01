@@ -14,9 +14,11 @@
     "next-mdx-remote": "^4.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "sharp": "^0.31.1"
+    "sharp": "^0.31.1",
+    "tedious": "^15.1.0"
   },
   "devDependencies": {
+    "dotenv": "^16.0.3",
     "eslint": "8.25.0",
     "eslint-config-next": "12.3.1"
   }

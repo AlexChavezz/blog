@@ -9,12 +9,12 @@ export const SuscribeTarget = ({handleSuscribe}) => {
   });
   const sendFollower = (e) => {
     e.preventDefault();
-    window.fetch('https://blogappservice1.azurewebsites.net', {
+    window.fetch('http://localhost:3000/api/home', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ userName: values.name, email: values.email }),
+      body: JSON.stringify({ name: values.name, email: values.email }),
     })
       .then((response) => response.json())
       .then(res => {
