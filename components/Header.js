@@ -11,7 +11,8 @@ export const Header = () => {
                 <h2 className={styles.headerTitle}>
                     Alexis&apos;s Blog
                 </h2>
-                <div className={styles.inputContainer}>
+                {/* IN PROCESS */}
+                {/* <div className={styles.inputContainer}>
                     <input type="text" placeholder="search" className={styles.searchInput} />
                     <div
                         className={styles.lensIcon}
@@ -20,11 +21,9 @@ export const Header = () => {
                             src={image}
                             alt="search"
                             title="search"
-                        // height={24}
-                        // width={24}
                         />
                     </div>
-                </div>
+                </div> */}
             </div>
             <div className={styles.headerBarNav}>
                 <nav>

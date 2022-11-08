@@ -50,7 +50,7 @@ export const SuscribeTarget = ({handleSuscribe}) => {
           value={values.email}
           onChange={handleInputChange}
         />
-        <input type="submit" value="Suscribe Me" className={styles.SuscribeButton} />
+        <input type="submit" value="Suscribe Me" className={styles.SuscribeButton} disabled/>
       </form>
     </section>
   );

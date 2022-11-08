@@ -4,7 +4,10 @@
     border: 1px solid #ccc;
     padding: 20px;
     margin-top: 73px;
+    opacity: .3;
+    cursor: not-allowed;
 }
+
 
 .SuscribeTarget {
     font-family: 'Inter';
@@ -61,6 +64,7 @@
     height: 30px;
     width: 120px;
     margin-top: 20px;
+    cursor: not-allowed;
 }
 
 @media (max-width: 1095px) {
