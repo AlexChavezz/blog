@@ -1,0 +1,63 @@
+---
+    title: Manejo compresiones en linux usando el formato tar
+    date: "Diciembre 11 2022"
+    author: "Alexis Chavez"
+    category: Linux
+    post_id: 1
+    main_image: linuxosiosi.jpg
+    main_image_author: Foto de DSD
+---
+
+[Photo by DSD](https://www.pexels.com/es-es/foto/fotografia-de-enfoque-selectivo-de-dos-pinguinos-689784/)
+
+En linux el formato más común usado para la compresión de archivos es .tar y sí eres nuevo en linux puede que no estés relacionado con él, así que aquí te mostraré como puedes usarlo.
+
+La sintaxis del comando es la siguiente:
+
+`linux@user:~$ tar -[options] archive_name.tar file1 file2 `
+
+El comando anterior es la sintaxis del comando que estarás usando para comprimir y descomprimir archivos. Veamos un ejemplo de compresión de archivos.
+
+### **COMPRIMIR**
+
+Supongamos que queremos comprimir un directorio que se llama '***folderToCompress***' y en adición también queremos comprimir ahí mismo un archivo de nombre '***file.txt***' entonces usamos
+el siguiente comando.
+
+`linux@user:~$ tar -cf archiveCompressed.tar folderToCompress file.txt`
+
+Al ejecutar el comando anterior lo que tendríamos es un nuevo tipo de archivo devuelto llamado archiveCompressed.tar en el cual se encuentran comprimidos nuestro **folderToCompress** y también el archivo 
+**file.txt**
+
+Llegado este punto has comprimido un directorio y un archivo exitosamente.
+>
+
+### **DESCOMPRIMIR**
+
+Ahora bien, que pasa cuando pasa lo contrario y ahora tenemos la necesidad de descomprimir archivos. Pues bien, aquí usaremos una variación del comando visto anteriormente.
+Esto se logra remplazando la bandera ***-c*** por ***-x*** de la siguiente manera.
+
+`linux@user:~$ tar -xf archiveCompressed.tar`
+
+Ahora deberías tener los archivos descomprimidos.
+
+### **COMPLEMENTOS**
+
+#### RETROALIMENTACION
+
+Cuando comprimes o descomprimes archivos puedes obtener una lista de qué archivos están siendo usados añadiendo la bandera ***-v***.  
+Puedes usar 
+
+`linux@user:~$ tar -cvf archiveCompressed.tar folderToCompress file.txt`
+>
+o también
+>
+`linux@user:~$ tar -xvf archiveCompressed.tar`
+
+#### LISTAR ARCHIVOS DENTRO DE UN ARCHIVO COMPRIMIDO
+Otro interesante movimiento que puedes hacer es listar los archivos que se encuentran dentro de un archivo con extensión .tar,
+esto es muy útil para poder ver qué archivos contiene sin tener que descomprimirlo totalmente.  
+Para listarlos tenemos que usar el comando:
+
+`linux@user:~$ tar -tf archiveCompressed.tar`
+
+Como puedes ver, usamos la bandera ***-t*** en vez de ***-x*** o ***-c*** para listarlos.
