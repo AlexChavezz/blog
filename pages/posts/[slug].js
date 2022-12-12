@@ -4,13 +4,61 @@ import { MDXRemote } from "next-mdx-remote";
 import styles from '../../styles/SlugPage.module.css';
 import { Header } from "../../components/Header";
 import Image from "next/image";
-
-
+import { useState } from "react";
+import replyLoge from '../../assets/reply.svg';
+import likeLoge from '../../assets/like.svg';
 
 // -> ![text](/imageToShow.jpg "title")
 
+const Comment = ({ owner, comment }) => {
+    return (
+        <article className={styles.commentContainer}>
+            <span>{owner}</span>
+            <p>{comment}</p>
+            <div className={styles.commentIconsContainer}>
+                <div className={styles.commentOptionContainer}>
+                    <div
+                        className={styles.commentIcon}
+                    >
+                        <Image
+                            src={likeLoge}
+                            alt="like"
+                            title="like"
+                        />
+                    </div>
+                    <span>10</span>
+                </div>
+                <div className={styles.commentOptionContainer}>
+                    <div
+                        className={styles.commentIcon}
+                    >
+                        <Image
+                            src={replyLoge}
+                            alt="reply"
+                            title="reply"
+                        />
+
+                    </div>
+                    <span>Reply</span>
+                </div>
+            </div>
+        </article>
+    );
+}
+
+
 export default function Post(props) {
-    
+
+    const [comments, setComments] = useState([{
+        owner: "John",
+        comment: "This is a comment lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
+        id: "identifiedby"
+    }, {
+        owner: "Alexis",
+        comment: "This is a comment lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
+        id: "alexis"
+    }]);
+
     return (
         <>
             <Head>
@@ -38,10 +86,22 @@ export default function Post(props) {
                     <div className={styles.articleContent}>
                         <MDXRemote {...props.source} />
                     </div>
-                    {/* <article className={styles.intrestedContainer}>
-                        <p>Lorem</p>
-                    </article> */}
+                    <div
+                        className={styles.commentsContainer}
+                    >
+                        <h2 className={styles.commentsTitle}> COMENTARIOS </h2>
+                        <section>
+                            {
+                                comments.map((comment) => <Comment {...comment} key={comment.id} />)
+                            }
+                        </section>
+                        <textarea
+                            className={styles.commentInput}
+                            placeholder="Leave a comment"
+                        >
 
+                        </textarea>
+                    </div>
                 </article>
             </section>
         </>

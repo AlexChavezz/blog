@@ -61,7 +61,7 @@
     font-size: 18px;
     line-height: 22px;
     color: #808080;
-
+    border-bottom:2px solid #ccc ;
 }
 .mainImageContainer {
 
@@ -95,6 +95,67 @@
     text-overflow: ellipsis;
 }
 
+/*
+
+    COMMENTS
+
+*/
+
+.commentsTitle
+{
+    color: gray;
+}
+
+.commentsContainer
+{
+    height: auto;
+    width: 100%;
+}
+.commentInput
+{
+    border: 2px solid #ccc; 
+    border-radius: 8px;
+    padding: 20px;
+    font-size: 1rem;
+    color: gray;
+    width: 100%;
+    resize: vertical;
+}
+
+.commentIconsContainer
+{
+    display: flex;
+    width: auto;
+    margin-top: 20px;
+}
+
+.commentOptionContainer
+{
+    display: flex;
+    align-items: center;
+    padding: 3px;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+.commentOptionContainer:hover
+{
+    background-color: rgba(204, 204, 204, 0.30);
+    cursor: pointer;}
+
+.commentIcon
+{
+    width: 20px;
+    height: 20px;
+    margin: 0px 10px;
+    cursor: pointer;
+    display: flex;
+}
+
+.commentIcon
+{
+    /* background-color: #ccc; */
+    fill: red;
+}
 
 /*  RESPONSIVE  */
 @media (max-width: 1029px)
@@ -165,4 +226,25 @@
     .articleTitle {
         margin: 0px;
     }
+}
+
+
+
+/*
+
+    COMMENTS COMPONENT STYLES
+
+*/
+
+.commentContainer
+{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    padding: 20px;
+    margin: 20px 0px;
+    border-radius: 10px;
 }
