@@ -4,61 +4,117 @@ import { MDXRemote } from "next-mdx-remote";
 import styles from '../../styles/SlugPage.module.css';
 import { Header } from "../../components/Header";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import replyLoge from '../../assets/reply.svg';
 import likeLoge from '../../assets/like.svg';
 
 // -> ![text](/imageToShow.jpg "title")
 
-const Comment = ({ owner, comment }) => {
-    return (
-        <article className={styles.commentContainer}>
-            <span>{owner}</span>
-            <p>{comment}</p>
-            <div className={styles.commentIconsContainer}>
-                <div className={styles.commentOptionContainer}>
-                    <div
-                        className={styles.commentIcon}
-                    >
-                        <Image
-                            src={likeLoge}
-                            alt="like"
-                            title="like"
-                        />
-                    </div>
-                    <span>10</span>
-                </div>
-                <div className={styles.commentOptionContainer}>
-                    <div
-                        className={styles.commentIcon}
-                    >
-                        <Image
-                            src={replyLoge}
-                            alt="reply"
-                            title="reply"
-                        />
+const Comment = ({ author, comment, likes, replies, isReply, reply }) => {
+    const [replay, setReplay] = useState(false);
+    const sendReplay = () => {
 
+    }
+    function toggleReplyForm()
+    {
+        setReplay(!replay);
+    }
+    return (
+        <>
+            <article className={isReply? styles.replyContainer : styles.commentContainer}>
+                <span>{author}</span>
+                <p>{comment||reply}</p>
+                <div className={styles.commentIconsContainer}>
+                {
+                    !isReply &&
+                    <div 
+                        className={styles.commentOptionContainer}
+                    >
+                        <div
+                            className={styles.commentIcon}
+                        >
+                            <Image
+                                src={likeLoge}
+                                alt="like"
+                                title="like"
+                            />
+                        </div>
+                        <span>{likes}</span>
                     </div>
-                    <span>Reply</span>
+                }
+                    <div className={styles.commentOptionContainer}
+                        onClick={toggleReplyForm}
+                    >
+                        <div
+                            className={styles.commentIcon}
+                        >
+                            <Image
+                                src={replyLoge}
+                                alt="reply"
+                                title="reply"
+                            />
+
+                        </div>
+                        <span>Responder</span>
+                    </div>
                 </div>
-            </div>
-        </article>
+                {
+                    replay &&
+                    <>
+                        <textarea 
+                            placeholder="Respuesta"
+                            className={styles.textArea}
+                        >
+                        </textarea>
+                        <div
+                            className={styles.buttonsContainer}
+                        >
+                            <Button 
+                                className={styles.cancelButton}
+                                text="Cancelar"
+                                onSubmit={toggleReplyForm}
+                            />
+                            <Button
+                                className={styles.sendButton}
+                                text="Responder"
+                            />
+                        </div>
+                    </>
+                }
+            </article>
+            {
+                replies &&
+                replies.map((reply) => <Comment {...reply} key={reply._id} isReply/>)
+            }
+        </>
     );
 }
 
+const Button = ({onSubmit, text, className, }) => {
+    return (
+        <button
+            className={className}
+            onClick={onSubmit}
+        >
+            {
+                text
+            }
+        </button>
+    );
+}
 
 export default function Post(props) {
 
-    const [comments, setComments] = useState([{
-        owner: "John",
-        comment: "This is a comment lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
-        id: "identifiedby"
-    }, {
-        owner: "Alexis",
-        comment: "This is a comment lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
-        id: "alexis"
-    }]);
-
+    const [comments, setComments] = useState([]);
+    useEffect(() => {
+        async function getComments() {
+            const response = await fetch(`http://localhost:8080/api/get/${props.frontMatter.title}`);
+            const data = await response.json();
+            console.log(data)
+            setComments(data);
+        }
+        getComments();
+    }, [])
     return (
         <>
             <Head>
@@ -90,9 +146,11 @@ export default function Post(props) {
                         className={styles.commentsContainer}
                     >
                         <h2 className={styles.commentsTitle}> COMENTARIOS </h2>
-                        <section>
+                        <section
+                            className={styles.commentsSection}
+                        >
                             {
-                                comments.map((comment) => <Comment {...comment} key={comment.id} />)
+                                comments.map((comment) => <Comment {...comment} key={comment._id} />)
                             }
                         </section>
                         <textarea
