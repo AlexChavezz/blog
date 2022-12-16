@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { Comment } from "../../components/Comment";
 import { Button } from "../../components/Button";
 import { useForm } from "../../hooks/useForm";
+import { URL_API } from "../../API/api";
 
 // -> ![text](/imageToShow.jpg "title")
 
@@ -30,7 +31,7 @@ export default function Post(props) {
         }
         try
         {
-            const response = await fetch('http://localhost:8080/api/comments//save-comment', {
+            const response = await fetch(`${URL_API}/comments/save-comment`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -59,7 +60,7 @@ export default function Post(props) {
     const [ comments, setComments ] = useState([]);
     useEffect(() => {
         const getComments = async () => {
-            const response = await fetch(`http://localhost:8080/api/comments/get/${props.frontMatter.title}`);
+            const response = await fetch(`${URL_API}/comments/get/${props.frontMatter.title}`);
             const data = await response.json();
             setComments(data);
         }
@@ -83,7 +84,7 @@ export default function Post(props) {
     }
     const postAsyncReply = async (document) => {
         try {
-            const response = await fetch('http://localhost:8080/api/comments/save-reply', {
+            const response = await fetch(`${URL_API}/comments/save-reply`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
