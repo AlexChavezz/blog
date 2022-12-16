@@ -158,21 +158,6 @@
     display: flex;
 }
 
-.commentIcon
-{
-    /* background-color: #ccc; */
-    fill: red;
-}
-
-/* .repliesContainer
-{
-    width: 100%;
-    height: auto;
-    display: flex;
-    margin-top: 20px;
-    justify-content: center;
-} */
-
 /*  RESPONSIVE  */
 @media (max-width: 1029px)
 {
@@ -246,86 +231,3 @@
 
 
 
-/*
-
-    COMMENTS COMPONENT STYLES
-
-*/
-
-.commentContainer
-{
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-    padding: 20px;
-    margin: 20px 0px;
-    border-radius: 10px;
-}
-
-.replyContainer
-{
-    width: 80%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-    border-left: 4px solid #545454;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-    padding: 20px;
-    margin: 20px 0px;
-    border-radius: 10px;
-}
-
-.textArea
-{
-    transition: all 300ms ease;
-    height: 200px;
-    width: 100%;
-    margin-top: 20px;
-    padding: 10px;
-    font-size: .8rem;
-    font-family: 'Inter';
-    border:2px solid #ccc;
-    outline: none;
-    resize: vertical;
-}
-
-.buttonsContainer
-{
-    display: flex;
-    margin-top: 20px;
-}
-
-.cancelButton
-{
-    background-color: transparent;
-    color: #434343;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    margin-right: 10px;
-    cursor: pointer;
-    border: 1px solid #ccc;
-}
-
-.cancelButton:hover
-{
-    background-color: #ccc;
-}
-.sendButton
-{
-    background-color: #198754;
-    border-color: #198754;
-    border: none;
-    cursor: pointer;
-    color: #fff;
-    padding: 10px;
-    border-radius: 5px;
-}
-.sendButton:hover
-{
-    background-color: #127446;
-}

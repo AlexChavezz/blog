@@ -4,117 +4,57 @@ import { MDXRemote } from "next-mdx-remote";
 import styles from '../../styles/SlugPage.module.css';
 import { Header } from "../../components/Header";
 import Image from "next/image";
-import { useState, useEffect } from "react";
-import replyLoge from '../../assets/reply.svg';
-import likeLoge from '../../assets/like.svg';
+import { useEffect, useState } from "react";
+import { Comment } from "../../components/Comment";
 
 // -> ![text](/imageToShow.jpg "title")
 
-const Comment = ({ author, comment, likes, replies, isReply, reply }) => {
-    const [replay, setReplay] = useState(false);
-    const sendReplay = () => {
-
-    }
-    function toggleReplyForm()
-    {
-        setReplay(!replay);
-    }
-    return (
-        <>
-            <article className={isReply? styles.replyContainer : styles.commentContainer}>
-                <span>{author}</span>
-                <p>{comment||reply}</p>
-                <div className={styles.commentIconsContainer}>
-                {
-                    !isReply &&
-                    <div 
-                        className={styles.commentOptionContainer}
-                    >
-                        <div
-                            className={styles.commentIcon}
-                        >
-                            <Image
-                                src={likeLoge}
-                                alt="like"
-                                title="like"
-                            />
-                        </div>
-                        <span>{likes}</span>
-                    </div>
-                }
-                    <div className={styles.commentOptionContainer}
-                        onClick={toggleReplyForm}
-                    >
-                        <div
-                            className={styles.commentIcon}
-                        >
-                            <Image
-                                src={replyLoge}
-                                alt="reply"
-                                title="reply"
-                            />
-
-                        </div>
-                        <span>Responder</span>
-                    </div>
-                </div>
-                {
-                    replay &&
-                    <>
-                        <textarea 
-                            placeholder="Respuesta"
-                            className={styles.textArea}
-                        >
-                        </textarea>
-                        <div
-                            className={styles.buttonsContainer}
-                        >
-                            <Button 
-                                className={styles.cancelButton}
-                                text="Cancelar"
-                                onSubmit={toggleReplyForm}
-                            />
-                            <Button
-                                className={styles.sendButton}
-                                text="Responder"
-                            />
-                        </div>
-                    </>
-                }
-            </article>
-            {
-                replies &&
-                replies.map((reply) => <Comment {...reply} key={reply._id} isReply/>)
-            }
-        </>
-    );
-}
-
-const Button = ({onSubmit, text, className, }) => {
-    return (
-        <button
-            className={className}
-            onClick={onSubmit}
-        >
-            {
-                text
-            }
-        </button>
-    );
-}
-
 export default function Post(props) {
-
-    const [comments, setComments] = useState([]);
+    const [ comments, setComments ] = useState([]);
     useEffect(() => {
-        async function getComments() {
-            const response = await fetch(`http://localhost:8080/api/get/${props.frontMatter.title}`);
+        const getComments = async () => {
+            const response = await fetch(`http://localhost:8080/api/comments/get/${props.frontMatter.title}`);
             const data = await response.json();
-            console.log(data)
             setComments(data);
         }
         getComments();
-    }, [])
+    }, []);
+    const postSyncReply = (commentId, reply) => {
+        setComments(comments.map((comment) => {
+            if (comment._id === commentId) {
+                return {
+                    ...comment,
+                    replies: [
+                        ...comment.replies,
+                        {
+                            ...reply
+                        }
+                    ]
+                }
+            }
+            return comment;
+        }))
+    }
+    const postAsyncReply = async (document) => {
+        try {
+            const response = await fetch('http://localhost:8080/api/comments/save-reply', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(document)
+            });
+            const data = await response.json();
+            console.log(data);
+            if (data.insertedId) {
+                const { _id, ...rest } = document;
+                postSyncReply(_id, { ...rest, reply_id: data.insertedId });
+            }
+        }
+        catch (error) {
+            console.log(error);
+        }
+    } 
     return (
         <>
             <Head>
@@ -150,7 +90,7 @@ export default function Post(props) {
                             className={styles.commentsSection}
                         >
                             {
-                                comments.map((comment) => <Comment {...comment} key={comment._id} />)
+                                comments.map((comment) => <Comment {...comment} key={comment._id} postAsyncReply={postAsyncReply} />)
                             }
                         </section>
                         <textarea
