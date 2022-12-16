@@ -88,12 +88,11 @@ export const Comment = (props) => {
                             className={styles.buttonsContainer}
                         >
                             <Button
-                                className={styles.cancelButton}
                                 text="Cancelar"
                                 onSubmit={toggleReplyForm}
                             />
                             <Button
-                                className={styles.sendButton}
+                                theme="success"
                                 text="Responder"
                                 onSubmit={onSubmit}
                             />

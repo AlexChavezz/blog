@@ -74,34 +74,3 @@
     display: flex;
     margin-top: 20px;
 }
-
-.cancelButton
-{
-    background-color: transparent;
-    color: #434343;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    margin-right: 10px;
-    cursor: pointer;
-    border: 1px solid #ccc;
-}
-
-.cancelButton:hover
-{
-    background-color: #ccc;
-}
-.sendButton
-{
-    background-color: #198754;
-    border-color: #198754;
-    border: none;
-    cursor: pointer;
-    color: #fff;
-    padding: 10px;
-    border-radius: 5px;
-}
-.sendButton:hover
-{
-    background-color: #127446;
-}

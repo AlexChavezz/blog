@@ -6,10 +6,56 @@ import { Header } from "../../components/Header";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Comment } from "../../components/Comment";
+import { Button } from "../../components/Button";
+import { useForm } from "../../hooks/useForm";
 
 // -> ![text](/imageToShow.jpg "title")
 
+const commentInitialState = {
+    author:'',
+    comment: ''
+}
+
 export default function Post(props) {
+    /* SUBMIT MAIN COMMENT */
+    const [{ author,comment}, handleInputChnage, reset] = useForm(commentInitialState);
+    const postAsyncComment = async(e) => {
+        e.preventDefault();
+        const document = {
+            author,
+            comment, 
+            postTitle: props.frontMatter.title,
+            likes: 0,
+            replies: []
+        }
+        try
+        {
+            const response = await fetch('http://localhost:8080/api/comments//save-comment', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(document)
+            })
+            const data = await response.json();
+            if( data.insertedId )
+            {
+                postSyncComment({ ...document, _id: data.insertedId });
+                reset();
+            }
+        }
+        catch(error)
+        {
+            console.log(error);
+        }
+    }
+    const postSyncComment = (comment) => {
+        setComments([
+            ...comments,
+            comment
+        ])
+    }    
+    /*  REPLYES FUNCTINALITY */
     const [ comments, setComments ] = useState([]);
     useEffect(() => {
         const getComments = async () => {
@@ -93,13 +139,36 @@ export default function Post(props) {
                                 comments.map((comment) => <Comment {...comment} key={comment._id} postAsyncReply={postAsyncReply} />)
                             }
                         </section>
-                        <textarea
-                            className={styles.commentInput}
-                            placeholder="Leave a comment"
+                        <section
+                            className={styles.commentsFormContainer}
                         >
-
-                        </textarea>
+                            <h3 className={styles.commentsTitle}>NUEVO COMENTARIO</h3>
+                            <form>
+                                <input 
+                                    type="text" 
+                                    placeholder="Nombre"
+                                    className={styles.nameInput}
+                                    name="author"
+                                    onChange={handleInputChnage}
+                                    value={author}
+                                />
+                                <textarea
+                                    className={styles.commentInput}
+                                    placeholder="Leave a comment"
+                                    name="comment"
+                                    onChange={handleInputChnage}
+                                    value={comment}
+                                >
+                                </textarea>
+                                <Button
+                                    text="Publicar"
+                                    theme="success"
+                                    onSubmit={ postAsyncComment }
+                                />
+                            </form>
+                        </section>
                     </div>
+            {/* <Footer /> */}
                 </article>
             </section>
         </>

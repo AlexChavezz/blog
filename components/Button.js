@@ -1,7 +1,10 @@
-export const Button = ({onSubmit, text, className, }) => {
+import styles from '../styles/ButtonComponentStyles.module.css';
+
+
+export const Button = ({onSubmit, text, theme }) => {
     return (
         <button
-            className={className}
+            className={theme === "success"? styles.btnSuccess : styles.btnSecoundary}
             onClick={onSubmit}
         >
             {
