@@ -16,6 +16,7 @@ export const Reply = ({ commentId, author, reply, postAsyncReply }) => {
     const [replyFormState, setReplyFormState] = useState(false);
     const toggleReplyForm = () => {
         setReplyFormState(!replyFormState);
+        reset();
     }
     const onSubmit = (e) => {
         e.preventDefault();

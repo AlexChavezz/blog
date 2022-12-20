@@ -1,0 +1,25 @@
+.createPostMainContainer
+{
+    height: 100vh;
+    width: 100vw;
+}
+
+.createPostMainContent
+{
+    width: 1200px;
+    margin: 0px auto;
+    height: 100%;
+}
+.createPostHeader
+{
+    height: 75px;
+    display:flex;
+    align-items: center;
+    
+}
+.createPostHeaderTitle
+{
+    margin: 0px;
+    font-size: 1.5rem;
+    color: gray;
+}

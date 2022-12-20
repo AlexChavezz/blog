@@ -13,6 +13,7 @@ export const CategoriesTarget = () => {
                 <Category category="SOFTWARE" />
                 <Category category="AWS" />
                 <Category category="TECHNOLOGY" />
+                <Category category="SO" />
             </article>
         </section>
     );

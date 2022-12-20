@@ -46,6 +46,9 @@ export default function Posts({ posts, category }) {
                         <Category
                             category="TECHNOLOGY"
                         />
+                        <Category
+                            category="SO"
+                        />
                     </article>
                     <article className={styles.containerConcidences}>
                         <h3 className={styles.coincidenceText}>COINCIDENCES FOR {" "}</h3>

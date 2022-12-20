@@ -127,6 +127,8 @@
     color: gray;
     width: 100%;
     resize: vertical;
+    height: 200px;
+    margin-bottom: 20px;
 }
 
 .nameInput
