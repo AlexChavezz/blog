@@ -42,8 +42,8 @@ export default function Posts({ posts, category }) {
                             <option value="ALL">TODOS</option>
                             <option value="AWS">AWS</option>
                             <option value="AZURE">AZURE</option>
-                            <option value="PROGRAMING">PROGRAMACIÓN</option>
-                            <option value="TECHNOLOGY">TECNOLOGÍA</option>
+                            <option value="PROGRAMACIÓN">PROGRAMACIÓN</option>
+                            <option value="TECNOLOGÍA">TECNOLOGÍA</option>
                             <option value="SO">SISTEMAS OPERATIVOS</option>
                             <option value="GCP">GOOGLE CLOUD PLATFORM</option>
                         </select>
