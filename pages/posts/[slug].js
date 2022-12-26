@@ -127,7 +127,7 @@ export default function Post(props) {
                         />
                     </div>
                     <div className={styles.articleContent}>
-                        <MDXRemote {...props.source} />
+                        <MDXRemote {...props.source}/>
                     </div>
                     <div
                         className={styles.commentsContainer}

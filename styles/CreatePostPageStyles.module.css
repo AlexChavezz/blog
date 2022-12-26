@@ -23,3 +23,48 @@
     font-size: 1.5rem;
     color: gray;
 }
+
+.createPostForm
+{
+    width: 80%;
+    margin: 0px auto;
+}
+
+.postItemInput
+{
+    padding: 10px;
+    outline: none;
+    border: .5px solid #ccc;
+    border-radius: 5px; 
+    width: 100%;
+    margin: 10px 0px;
+}
+
+.postContent
+{
+    padding: 20px;
+    outline: none;
+    border: .5px solid #ccc;
+    border-radius: 5px; 
+    width: 100%;
+    margin: 10px 0px;
+    height: 700px;    
+    font-size: 1rem;
+    resize: vertical;
+    white-space: pre-wrap;
+}
+
+.btnSuccess
+{
+    background-color: #198754;
+    border-color: #198754;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+.btnSuccess:hover
+{
+    background-color: #127446;
+}

@@ -33,26 +33,25 @@ export default function Posts({ posts, category }) {
             <MainContent>
                 <section className={styles.postsContainer}>
                     SELECT A CATEGORY
-                    <article className={styles.categoriesContainer}>
-                        <Category
-                            category="AWS"
-                        />
-                        <Category
-                            category="AZURE"
-                        />
-                        <Category
-                            category="PROGRAMING"
-                        />
-                        <Category
-                            category="TECHNOLOGY"
-                        />
-                        <Category
-                            category="SO"
-                        />
-                    </article>
+                    <form>
+                        <select
+                            className={styles.inputSelectCategory}
+                            onChange={(e) => setActiveCategory(e.target.value)}
+                            defaultValue={activeCategory}
+                        >
+                            <option value="ALL">TODOS</option>
+                            <option value="AWS">AWS</option>
+                            <option value="AZURE">AZURE</option>
+                            <option value="PROGRAMING">PROGRAMACIÓN</option>
+                            <option value="TECHNOLOGY">TECNOLOGÍA</option>
+                            <option value="SO">SISTEMAS OPERATIVOS</option>
+                            <option value="GCP">GOOGLE CLOUD PLATFORM</option>
+                        </select>
+
+                    </form>
                     <article className={styles.containerConcidences}>
-                        <h3 className={styles.coincidenceText}>COINCIDENCES FOR {" "}</h3>
-                        <Category category={activeCategory} />
+                        <h3 className={styles.coincidenceText}>COINCIDENCIAS PARA  {" "}</h3>
+                        <Category category={activeCategory} hiddeIcon/>
                     </article>
                     <article>
                         {

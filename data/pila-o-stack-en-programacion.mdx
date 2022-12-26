@@ -1,0 +1,166 @@
+---
+    title: Stack o Pila usando c++
+    date: "Diciembre 21 2022"
+    author: "Alexis Chavez"
+    category: PROGRAMACIÓN
+    post_id: 2
+    main_image: stack.jpg
+    main_image_author: Foto de Pixabay
+---
+
+[Photo by DSD](https://www.pexels.com/es-es/foto/fotografia-de-enfoque-selectivo-de-dos-pinguinos-689784/)
+
+Cuando hablamos de estructuras de datos, una de las más famosas él la pila o también llamada stack.
+Esta es una estructura de tipo LIFO que son las siglas de "Last In, First Out" (Último en entrar, Primero en Salir).
+
+Puedes pensar en una pila/stack como cuando apilas los platos, un plato quedará arriba de otro y este de otro. Entonces si quieres añadir un nuevo plato lo pones arriba de los ya existentes, ¿verdad?,
+pero ¿por qué haríamos algo así?, pues porque es lo más eficiente, ya que sería más tedioso tener que levantar los platos para colocar el nuevo plato en otra posición.
+Ahora, ¿qué pasa si quiero quitar un plato?, pues la respuesta es que usamos el pato de hasta arriba, es justo esté el último plato que apilamos. Pues esta es la idea abstracta que utiliza para desarrollar 
+esta estructura de datos.
+
+Una pila/stack en el mundo de la programación Se trata de la creación de nodos programados de tal manera que simule un apilamiento de platos pero apilando nodos de información (*datos*).
+
+![text](https://cdn.programiz.com/sites/tutorial2program/files/stack.png "stack")
+
+#### OPERACIONES BÁSICAS
+
+- Insertar Nodo.
+- Eliminar Nodo. 
+- Imprimir Nodos
+
+En nuestra pila tenemos el principal puntero que apunta a la **cima** (el último nodo ingresado por el usuario) que en el caso de no haber nodos, es decir que la pila este vacía apuntará a un valor NULO.
+
+#### PROGRAMACIÓN
+
+Empezamos por definir nuestra clase en c++.
+
+```c++
+class Stack
+{
+private:
+	class Node
+	{
+	public:
+		char letter;
+		Node *next;
+		Node(int d)
+		{
+			letter = d;
+			next = NULL;
+		}
+	};
+	Node *pila;
+public: 
+	Stack();
+	void pop();
+	void push(char letter);
+	void print();
+};
+```
+
+**CLASE Stack**
+
+Nuestra clase principal es la clase Stack que hace referencia a toda la pila entera piensa que esta clase es el contenedor de platos.
+
+**CLASE Node** 
+
+Mi clase Nodo declarada dentro de la clase Stack representa un plato.
+Contiene tres atributos públicos. El primero es una variable de tipo char en la que el usuario guarda una letra, también existe un apuntador que apuntará al siguiente elemento
+que también será de tipo nodo, por último tenemos el constructor de la clase el cual se encarga de inicializar las dos variables antes mencionadas.  
+
+**METODOS PUBLICOS (pop, push, print)**
+También declaramos un par de métodos como métodos públicos.
+
+- pop(); es un método que eliminará el último elemento añadido a nuestro stack.
+- push(); es un método que añadirá un nuevo nodo a nuestro stack.
+- print(); es el método que imprimirá todos los nodos con los datos que estos contengan.
+
+##### METODO PUSH
+
+```
+void Stack::push(char l)
+{
+	Node *newNode = new Node(l); 
+	newNode->next = pila; 
+	pila = newNode;
+	cout << l << " has be added to pila successfuly" << endl;
+}
+```
+
+##### METODO POP
+```
+void Stack::pop()
+{
+	int l;
+	Node *aux = pila;
+	l = aux->letter;
+	pila = aux->next;
+	cout << aux->letter << " has be eliminated" << endl;
+	delete aux;
+}
+```
+
+##### METODO PRINT
+```
+void Stack::print()
+{
+	Node *aux;
+	for (aux = pila; aux != NULL; aux = aux->next)
+	{
+		cout << aux->letter << endl;
+	}
+}
+
+```
+
+Lo primero que necesitamos es hacer declarar una variable de tipo nodo que apuntará al último nodo que hayamos ingresado.
+Ahora, como si se tratara de un arreglo, inicializaremos nuestra variable aun con el valor para que apunte al el último nodo, es decir, donde está apuntando
+nuestro stack
+
+
+##### METODO MAIN
+```
+int main()
+{
+ char letter;
+ int iterations;
+ cout << "How many elements you need add" << endl;
+ cin >> iterations;
+
+ Stack *object = new Stack();
+ for (int i = 0; i < iterations; i++)
+ {
+	 cout << "Enter letter to add: " << endl;
+	 cin >> letter;
+	 object->addNewNode(letter);
+ }
+ int opc;
+ bool flag = true;
+ do
+ {
+	 cout << "What do you want to do now?" << endl;
+	 cout << "(1) remove one\n(2) print\n(3) exit" << endl;
+	 cin >> opc;
+
+	 if (opc == 1)
+	 {
+			object->deleteNode();
+	 }
+	 else if (opc == 2)
+	 {
+		 object->print();
+	 }
+	 else if (opc == 3)
+	 {
+		 flag = false;
+	 }
+	 else
+	 {
+		 cout << "Invalid option" << endl;
+	 }
+ } while (opc != 3);
+
+ return 0;
+}
+```
+

@@ -10,10 +10,11 @@ export const CategoriesTarget = () => {
             <article className={styles.categoriesContainer}>
                 {/* COMPONENET*/}
                 <Category category="AZURE" />
-                <Category category="SOFTWARE" />
                 <Category category="AWS" />
                 <Category category="TECHNOLOGY" />
                 <Category category="SO" />
+                <Category category="GCP" />
+                <Category category="PROGRAMING" />
             </article>
         </section>
     );
