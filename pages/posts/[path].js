@@ -178,7 +178,7 @@ export default function Post({ post }) {
 export async function getStaticProps({ params }) {
     // const { source, frontMatter } = await getFileBySlug(params.slug);
     
-    const data = await fetch(`http://localhost:8080/api/posts/${params.path}`);
+    const data = await fetch(`${URL_API}/posts/${params.path}`);
     const post = await data.json();
 
     return {
@@ -200,7 +200,7 @@ export async function getStaticPaths() {
     //     fallback: false
     // }
 
-    let data = await fetch('http://localhost:8080/api/posts/paths');
+    let data = await fetch(`${URL_API}/posts/paths`);
     data = await data.json();
     const paths = data.map(post => {
         return {
