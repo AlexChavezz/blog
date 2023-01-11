@@ -1,18 +1,20 @@
 import Head from 'next/head'
 import { useState } from 'react';
+import { URL_API } from '../API/api';
 import { ArticleTarget } from '../components/ArticleTarget';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header'
 import { LastPost } from '../components/LastPost';
 import { MainContent } from '../components/MainContent';
 import { SuscribeAlert } from '../components/SuscribedAlert';
-import { getAllFilesMetadata, getLastPostMetaData } from '../lib/mdx';
 import styles from "../styles/Home.module.css";
 
 
-export default function Home({ posts, lastPost }) {
+export default function Home({
+  posts,
+  // lastPost
+}) {
   const [showSuscribeAlert, setShowSuscribeAlert] = useState(false);
-
   const handleSuscribe = () => {
     setShowSuscribeAlert(true);
     setTimeout(() => {
@@ -33,7 +35,7 @@ export default function Home({ posts, lastPost }) {
           showSuscribeAlert && <SuscribeAlert />
         }
         <section className={styles.postsSection}>
-          <LastPost {...lastPost} />
+          <LastPost {...posts[0]} />
           <article>
             <div className={styles.morePostTitleContainer}>
               <h3>
@@ -41,7 +43,13 @@ export default function Home({ posts, lastPost }) {
               </h3>
             </div>
             {
-              posts.map((post) => <ArticleTarget {...post} key={post.slug} />)
+              posts.map((post, index) => {
+                if( index === 0)
+                {
+                  return;
+                }
+                return <ArticleTarget {...post} key={post.path} />
+              })
             }
           </article>
         </section>
@@ -52,10 +60,17 @@ export default function Home({ posts, lastPost }) {
 }
 
 export async function getStaticProps() {
-  const posts = await getAllFilesMetadata();
-  const lastPost = await getLastPostMetaData();
-  return {
-    props: { posts, lastPost }
-  }
-}
+  // const posts = await getAllFilesMetadata();
+  // const lastPost = await getLastPostMetaData();
 
+  // -> get posts
+  const data = await fetch(`${URL_API}/posts`);
+  const posts = await data.json();
+  return {
+    props: {
+      posts,
+      // lastPost 
+    },
+  }
+
+}

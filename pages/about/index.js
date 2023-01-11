@@ -22,7 +22,7 @@ export default function About() {
                     <h4 className={styles.greeting}>Hey There!</h4>
                     <article className={styles.me}>
                         <div className={styles.mePhotoContainer}>
-                            <Image src={photo} alt="me" width={150} height={150}/>
+                            <Image src={'/alexis.png'} alt="me" width={150} height={150} style={{borderRadius:'50%'}}/>
                         </div>
                         <div className={styles.meInfoContainer}>
                             <p className={styles.meInfoText}>

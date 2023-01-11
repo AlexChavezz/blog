@@ -2,13 +2,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../styles/ArticleTargetComponent.module.css';
 
-export const ArticleTarget = ({ category, title, resumen, slug, date, main_image }) => {
+export const ArticleTarget = ({ categories, postName, path, date, mainImage }) => {
     return (
-        <Link href={`/posts/${slug}`}>
+        <Link href={`/posts/${path}`}>
             <article className={styles.articleTargetContainer}>
                 <div className={styles.articleImageContainer}>
                     <Image
-                        src={`/${main_image}`}
+                        src={`${mainImage}`}
                         width={316}
                         height={207}
                         objectFit="cover"
@@ -17,11 +17,9 @@ export const ArticleTarget = ({ category, title, resumen, slug, date, main_image
                     />
                 </div>
                 <div className={styles.articleInfoContainer}>
-                    <span className={styles.articleCategoryText}>{category}</span>
-                    <h4 className={styles.articleTitle}>{title}</h4>
+                    <span className={styles.articleCategoryText}>{categories[0]}</span>
+                    <h4 className={styles.articleTitle}>{postName}</h4>
                     <span className={styles.articleDate}>{date}</span>
-                    <p className={styles.articleResume}>{resumen}</p>
-
                 </div>
             </article>
         </Link>
