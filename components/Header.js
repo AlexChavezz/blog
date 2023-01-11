@@ -80,7 +80,7 @@ export const Header = () => {
                                 )
                                 :
                                 (
-                                    searchResults.map(({ path, postName }) => <Link href={`/posts/${path}`} key={path}>
+                                    searchResults.map(({ path, postName }) => <Link href={`/posts/${path}`} key={postName}>
                                         <p className={styles.searchResultItem}>
                                             {postName}
                                         </p>

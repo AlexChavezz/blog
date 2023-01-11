@@ -1,11 +1,10 @@
-import Head from "next/head";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { MainContent } from "../../components/MainContent";
-import styles from '../../styles/About.module.css';
-import photo from '../../assets/userPhoto.png';
-import Image from "next/image";
 import { SocialNetworks } from "../../components/SocialNetworks";
+import Head from "next/head";
+import Image from "next/image";
+import styles from '../../styles/About.module.css';
 
 
 export default function About() {
@@ -19,7 +18,7 @@ export default function About() {
             <Header />
             <MainContent>
                 <section className={styles.aboutContainer}>
-                    <h4 className={styles.greeting}>Hey There!</h4>
+                    <h4 className={styles.greeting}>Hola a todos!</h4>
                     <article className={styles.me}>
                         <div className={styles.mePhotoContainer}>
                             <Image src={'/alexis.png'} alt="me" width={150} height={150} style={{borderRadius:'50%'}}/>
@@ -29,21 +28,26 @@ export default function About() {
                             </p>
                         </div>
                     </article>
-                    <p style={{ margin: "0px" }} className={styles.meInfoText}>
-                        
+                    <p style={{ margin: "0px", marginTop: 20 }} className={styles.meInfoText}>
+                        Soy Alexis un estudiante universitario de la carrera de Ingeniería Informática. Soy un apasionado de la tecnología y constantemente estoy aprendiendo
+                        nuevas tecnologías y herramientas para poder aplicarlas en mis proyectos personales y en mis trabajos escolares. 
+                        Me entusiasma el mundo del desarrollo de software de todo tipo, he desarrollado aplicaciones web, aplicaciones móviles y aplicaciones de escritorio.
+                        A pesar de la gran pasión que le tengo al mundo del desarrollo de software, existe algo que le da aún más satisfacción a mi ser y eso es COMPARTIR.
+                        Me gusta mucho el compartir mi conocimiento de todo lo que aprendo con otros, ya sea a través de eventos escolares en mi universidad, como talleres y ponencias o a través de este
+                        blog que espero que disfrutes mucho. :) 
+
                     </p>
                     <span className={styles.meInfoFooter}>
-                        Do you want to see more about my work?
+                        ¿Te gustaría ver más acerca de mi trabajo?
                         <br />
-                        Look at my portfolio <a className={styles.link} href={"https://www.alexisdev.tech"} target="__blank"> Here!</a>
+                        Puedes ver mi portfolio <a className={styles.link} href={"https://www.alexisdev.tech"} target="__blank"> Aqui!</a>
                     </span>
                     <span className={styles.meInfoFooter}>
-                        Contactamos?
+                        Conectamos?
                         <br />
                         <br />
                         <SocialNetworks />
                     </span>
-
                 </section>
             </MainContent>
             <Footer />
