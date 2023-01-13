@@ -33,8 +33,8 @@ export default function Posts({ posts }) {
             </Head>
             <Header />
             <MainContent>
-                <section className={styles.postsContainer}>
-                    SELECT A CATEGORY
+                 <section className={styles.postsContainer}>
+                    {/*SELECT A CATEGORY
                     <form>
                         <select
                             className={styles.inputSelectCategory}
@@ -53,8 +53,8 @@ export default function Posts({ posts }) {
                     </form>
                     <article className={styles.containerConcidences}>
                         <h3 className={styles.coincidenceText}>COINCIDENCIAS PARA  {" "}</h3>
-                        {/* <Category category={activeCategory} hiddeIcon/> */}
-                    </article>
+                        <Category category={activeCategory} hiddeIcon/> 
+                    </article> */}
                     <article>
                         {
                             activePosts.map(post => <ArticleTarget {...post} key={post.post_id} />)

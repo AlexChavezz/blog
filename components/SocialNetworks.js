@@ -6,7 +6,7 @@ import Image from 'next/image';
 export const SocialNetworks = () => {
     return (
         <div>
-            <a href="" className={styles.aboutTargetSocialImage}>
+            <a href="mailto: alexiscontreras@ieee.org" className={styles.aboutTargetSocialImage}>
                 <Image
                     src={mailImage}
                     alt="gmail"

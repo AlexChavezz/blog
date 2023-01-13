@@ -6,22 +6,11 @@ import { Footer } from '../components/Footer';
 import { Header } from '../components/Header'
 import { LastPost } from '../components/LastPost';
 import { MainContent } from '../components/MainContent';
-import { SuscribeAlert } from '../components/SuscribedAlert';
 import styles from "../styles/Home.module.css";
-
 
 export default function Home({
   posts,
-  // lastPost
 }) {
-  const [showSuscribeAlert, setShowSuscribeAlert] = useState(false);
-  const handleSuscribe = () => {
-    setShowSuscribeAlert(true);
-    setTimeout(() => {
-      setShowSuscribeAlert(false);
-    }, 2000)
-  }
-
   return (
     <div>
       <Head>
@@ -30,10 +19,7 @@ export default function Home({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <MainContent handleSuscribe={handleSuscribe}>
-        {
-          showSuscribeAlert && <SuscribeAlert />
-        }
+      <MainContent>
         <section className={styles.postsSection}>
           <LastPost {...posts[0]} />
           <article>
@@ -60,16 +46,12 @@ export default function Home({
 }
 
 export async function getStaticProps() {
-  // const posts = await getAllFilesMetadata();
-  // const lastPost = await getLastPostMetaData();
-
   // -> get posts
   const data = await fetch(`${URL_API}/posts`);
   const posts = await data.json();
   return {
     props: {
       posts,
-      // lastPost 
     },
   }
 
