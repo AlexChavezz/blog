@@ -1,6 +1,5 @@
 // import { useState, useEffect, useContext } from 'react';
 import { ArticleTarget } from "../../components/ArticleTarget";
-import { Category } from "../../components/aside_components/Category";
 import { useState } from "react";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
@@ -11,7 +10,7 @@ import Head from "next/head";
 import { URL_API } from "../../API/api";
 
 export default function Posts({ posts }) {
-    const [activePosts, setActivePosts] = useState(posts);
+    // const [activePosts, setActivePosts] = useState(posts);
     // const [activePosts, setActivePosts] = useState();
     // const { activeCategory, setActiveCategory } = useContext(CategoryasaParameter);
     // useEffect(() => {
@@ -56,7 +55,7 @@ export default function Posts({ posts }) {
                     </article> */}
                     <article>
                         {
-                            activePosts.map(post => <ArticleTarget {...post} key={post.postName} />)
+                            posts.map(post => <ArticleTarget {...post} key={post.postName} />)
                         }
                     </article>
                 </section>

@@ -2,7 +2,7 @@ import Head from "next/head";
 import styles from '../../styles/SlugPage.module.css';
 import { Header } from "../../components/Header";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Comment } from "../../components/Comment";
 import { Button } from "../../components/Button";
 import { useForm } from "../../hooks/useForm";
@@ -15,9 +15,10 @@ const commentInitialState = {
     author:'',
     comment: ''
 }
-
+const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
 export default function Post({ post }) {
     /* SUBMIT MAIN COMMENT */
+    const {current:postDate} = useRef( new Date(post.date) )
     const [{ author,comment}, handleInputChnage, reset] = useForm(commentInitialState);
     const postAsyncComment = async(e) => {
         e.preventDefault();
@@ -111,7 +112,7 @@ export default function Post({ post }) {
             <Header />
             <section className={styles.mainContentContainer}>
                 <article className={styles.articleContainer}>
-                    <p className={styles.articleDate}>{post.date}</p>
+                    <p className={styles.articleDate}>{`${months[postDate.getMonth()]} ${postDate.getDate()} ${postDate.getFullYear()}`}</p>
                     <h1 className={styles.articleTitle}>{post.postName}</h1>
                     <span className={styles.articleAuthor}>
                         {"  By " + post.author}
@@ -176,8 +177,6 @@ export default function Post({ post }) {
 }
 
 export async function getStaticProps({ params }) {
-    // const { source, frontMatter } = await getFileBySlug(params.slug);
-    
     const data = await fetch(`${URL_API}/posts/${params.path}`);
     const post = await data.json();
 
@@ -189,17 +188,6 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-    // const array = await getFiles();
-    // const paths = array.map(post => ({
-    //     params: {
-    //         slug: post.replace(/\.mdx/, "")
-    //     }
-    // }));
-    // return {
-    //     paths,
-    //     fallback: false
-    // }
-
     let data = await fetch(`${URL_API}/posts/paths`);
     data = await data.json();
     const paths = data.map(post => {
