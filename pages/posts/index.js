@@ -11,7 +11,6 @@ import Head from "next/head";
 import { URL_API } from "../../API/api";
 
 export default function Posts({ posts }) {
-    console.log(posts)
     const [activePosts, setActivePosts] = useState(posts);
     // const [activePosts, setActivePosts] = useState();
     // const { activeCategory, setActiveCategory } = useContext(CategoryasaParameter);
@@ -57,7 +56,7 @@ export default function Posts({ posts }) {
                     </article> */}
                     <article>
                         {
-                            activePosts.map(post => <ArticleTarget {...post} key={post.post_id} />)
+                            activePosts.map(post => <ArticleTarget {...post} key={post.postName} />)
                         }
                     </article>
                 </section>
