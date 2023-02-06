@@ -7,7 +7,7 @@ import styles from '../../styles/AsideBarComponent.module.css'
 import { useForm } from '../../hooks/useForm';
 
 const categories = ['PROGRAMING', 'AWS', 'AZURE', 'GOOGLE CLOUD PLATFORM', 'SO']
-export const AsideBar =  (props) => {
+export const AsideBar = (props) => {
     const [uploadedImages, setUploadedImages] = useState([]);
     const [activeCategories, setActiveCategories] = useState([]);
     const [{ SECRET_KEY }, handleInputChange, reset] = useForm({ SECRET_KEY: '' });

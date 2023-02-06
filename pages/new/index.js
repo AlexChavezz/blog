@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { URL_API } from "../../API/api";
 import { UploadImage } from "../../components/new_post/UploadImage";
 import { useForm } from "../../hooks/useForm";
-import {AsideBar} from "../../components/new_post/AsideBar";
+import { AsideBar } from "../../components/new_post/AsideBar";
 import Head from "next/head";
 import styles from "../../styles/CreatePostPageStyles.module.css";
 import Image from "next/image";
@@ -88,7 +88,7 @@ export default function CreatePost() {
                                         )
                                         :
                                         (
-                                            <UploadImage className={styles.postItemInput} title="Uplaod main image" onClick={selectImageFromLocalFiles} />
+                                            <UploadImage className={styles.postItemInput} title="Upload main image " onClick={selectImageFromLocalFiles} />
                                         )
                                 )
                                 :
