@@ -1,16 +1,8 @@
 ALEXIS BLOG
 
 PENDIENTES
-
-- [x] ALERTA DINAMICA DE SUSCRIPCION
-- [ ] ICONO DEL SITIO
-- [ ] PRIMEROS DOS POSTS
-- [ ] PAGINA DEL ABOUT ME
-- [ ] FOTOGRAFIA MIA
 - [ ] SECCION ADICIONAL EN CADA POST QUE MUESTRE RESULTADOS RELACIONADOS CON EL POST 
-- [ ] BUSCADOR DE POST FUNCIONE
 
-IDEAS PARA POSTS 
+ENTRADAS
 
-variables de entorno en azure app service
-despliege en app services usando github actions
+- Conceptos básicos de mongoDB 01/01/2023
