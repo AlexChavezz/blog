@@ -1,27 +1,51 @@
+import { useState, useRef } from "react";
+import { URL_API } from "../../API/api";
+import { UploadImage } from "../../components/new_post/UploadImage";
+import { useForm } from "../../hooks/useForm";
+import AsideBar from "../../components/new_post/AsideBar";
 import Head from "next/head";
-import { useState } from "react";
-import { Button } from "../../components/Button";
 import styles from "../../styles/CreatePostPageStyles.module.css";
 
+const initialState = {
+    postName: '',
+    date: null,
+    author: 'alexis chavez',
+    mainImage: '',
+    path: '',
+    content: ''
+}
 
-
-const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-const date = new Date();
-const initialstate =
-    `
----
-title: 
-date: "${months[date.getMonth()]} ${date.getDate()} ${date.getFullYear()}"
-author: "Alexis Chavez"
-category: 
-post_id: 1
-main_image: linuxosiosi.jpg
-main_image_author: Foto de DSD
----
-`;
+const fileInitialState = {
+    url: null,
+    isUpload: false,
+    isUploading: false
+}
 
 export default function CreatePost() {
-    const [post, setPost] = useState(initialstate);
+    const [isThereAUrlFile, setIsThereAUrlFile] = useState(fileInitialState);
+    const [values, handleInputChange, reset] = useForm(initialState);
+    async function handleInputFileChange({ target }) {
+        setIsThereAUrlFile({ ...isThereAUrlFile, isUploading: true })
+        const file = new FormData();
+        file.append('image', target.files[0]);
+        window.fetch(`${URL_API}/posts/uploadImage`, {
+            method: "POST",
+            body: file
+        })
+            .then((res) => res.json())
+            .then(res => setIsThereAUrlFile({ url: res.thumbnailUrl, isUpload: true, isUploading: false }))
+    }
+    const fileInput = useRef();
+    function selectImageFromLocalFiles() {
+        fileInput.current.click();
+        setIsThereAUrlFile
+    }
+
+    function resetAll() {
+        reset();
+        setIsThereAUrlFile(fileInitialState);
+    }
+
     return (
         <>
             <Head>
@@ -30,51 +54,65 @@ export default function CreatePost() {
             <section
                 className={styles.createPostMainContainer}
             >
+                <AsideBar values={values} isThereAUrlFile={isThereAUrlFile} reset={resetAll}/>
                 <main
                     className={styles.createPostMainContent}
                 >
-                    <header
-                        className={styles.createPostHeader}
-                    >
-                        <h2
-                            className={styles.createPostHeaderTitle}
-                        >CREATE POST</h2>
-                    </header>
                     <form
                         className={styles.createPostForm}
+                    // onSubmit={onSubmit}
                     >
-                        {/* 
                         <input
                             type="text"
-                            placeholder="Post Title"
+                            name="postName"
+                            placeholder="post name"
+                            value={values.postName}
+                            onChange={handleInputChange}
                             className={styles.postItemInput}
                         />
-
-                       <select
+                        <input
                             type="text"
-                            placeholder="Post Title"
+                            name="path"
+                            placeholder="path name"
+                            value={values.path}
+                            onChange={handleInputChange}
                             className={styles.postItemInput}
-                        >
-                            <option value="programing">PROGRAMACION</option>
-                            <option value="aws">AWS</option>
-                            <option value="azure">AZURE</option>
-                            <option value="gcp">GOOGLE CLOUD PLATFORM</option>
-                            <option value="so">SISTEMAS OPERATIVOS</option>
-                        </select> */}
+                        />
+                        {
+                            !isThereAUrlFile.isUpload ?
+                                (
+                                    isThereAUrlFile.isUploading ?
+                                        (
+                                            <div className='loader'></div>
+                                        )
+                                        :
+                                        (
+                                            <UploadImage className={styles.postItemInput} title="Uplaod main image" onClick={selectImageFromLocalFiles} />
+                                        )
+                                )
+                                :
+                                (
+                                    <img
+                                        src={isThereAUrlFile.url}
+                                        alt='main-image'
+                                    />
+                                )
+                        }
+                        <input
+                            type="file"
+                            className={styles.postItemInput}
+                            onChange={handleInputFileChange}
+                            ref={fileInput}
+                            style={{ display: 'none' }}
+                        />
                         <textarea
                             className={styles.postContent}
                             placeholder="Post Content"
-                            name="post"
-                            value={post}
-                            onChange={(e) => setPost(e.target.value)}
+                            name="content"
+                            value={values.content}
+                            onChange={handleInputChange}
                         >
                         </textarea>
-                        <Button
-                            text={"Publish Post"}
-                            theme={"success"}
-                            value="Publish Post"
-                            onSubmit={() => console.log("hey")}
-                        />
                     </form>
                 </main>
             </section>

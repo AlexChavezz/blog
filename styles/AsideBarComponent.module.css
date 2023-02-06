@@ -1,0 +1,65 @@
+.createPostAsideContent {
+    width: 300px;
+    height: 100vh;
+    background-color: #fff;
+    border-left: .5px solid #ccc;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.publishButton
+{
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    width: auto;
+}
+
+.createPostAsideContentUploadImage
+{
+    display: flex;
+    border: 1px solid #ccc;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.uploadImageComponent
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0px;
+
+}
+
+.createPostAsideContentCategoriesContainer 
+{
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.createPostAsideContentCategory
+{
+    font-size: 13px;
+    padding: 5px;
+    border: .5px solid #ccc;
+    cursor:pointer;
+    margin: 5px;
+}
+.activeCategory
+{
+    font-size: 13px;
+    padding: 5px;
+    cursor:pointer;
+    margin: 5px;
+    background-color: #cccccc23;
+}
+.createPostAsideContentSecretKeyInput
+{
+    padding: 5px;
+    border: .5px solid #ccc;
+    outline: none;
+}

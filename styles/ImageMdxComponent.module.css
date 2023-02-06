@@ -1,0 +1,13 @@
+.imageMdxComponent
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    font-size: 14px;
+    border: .5px solid #ccc;
+    padding: 10px;
+    height: auto;
+    word-break: break-all;
+    margin-top: 10px;
+}
