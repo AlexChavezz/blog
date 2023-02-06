@@ -65,7 +65,7 @@ export default function Post({ post }) {
             setComments(data);
         }
         getComments();
-    }, []);
+    }, [post.postName]);
     const postSyncReply = (commentId, reply) => {
         setComments(comments.map((comment) => {
             if (comment._id === commentId) {

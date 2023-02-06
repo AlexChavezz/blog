@@ -2,9 +2,10 @@ import { useState, useRef } from "react";
 import { URL_API } from "../../API/api";
 import { UploadImage } from "../../components/new_post/UploadImage";
 import { useForm } from "../../hooks/useForm";
-import AsideBar from "../../components/new_post/AsideBar";
+import {AsideBar} from "../../components/new_post/AsideBar";
 import Head from "next/head";
 import styles from "../../styles/CreatePostPageStyles.module.css";
+import Image from "next/image";
 
 const initialState = {
     postName: '',
@@ -92,7 +93,7 @@ export default function CreatePost() {
                                 )
                                 :
                                 (
-                                    <img
+                                    <Image
                                         src={isThereAUrlFile.url}
                                         alt='main-image'
                                     />
