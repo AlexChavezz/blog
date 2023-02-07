@@ -96,6 +96,8 @@ export default function CreatePost() {
                                     <Image
                                         src={isThereAUrlFile.url}
                                         alt='main-image'
+                                        width={800}
+                                        height={400}
                                     />
                                 )
                         }
