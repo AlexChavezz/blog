@@ -10,7 +10,7 @@ export function MainContent({ children }) {
       <aside className={styles.asideSection}>
         <AboutTarget />
         <SuscribeTarget />
-        <CategoriesTarget />
+        {/* <CategoriesTarget /> */}
       </aside>
     </main>
   );

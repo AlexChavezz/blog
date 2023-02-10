@@ -6,7 +6,7 @@ import { UploadImage } from './UploadImage';
 import styles from '../../styles/AsideBarComponent.module.css'
 import { useForm } from '../../hooks/useForm';
 
-const categories = ['PROGRAMING', 'AWS', 'AZURE', 'GOOGLE CLOUD PLATFORM', 'OPERATING SYSTEMS', 'MONGODB', 'DATABASES', 'JAVASCRIPT'];
+const categories = ['PROGRAMING', 'AWS', 'AZURE', 'GOOGLE CLOUD PLATFORM', 'OPERATING SYSTEMS', 'MONGODB', 'DATABASES', 'JAVASCRIPT', 'CLOUD'];
 export const AsideBar = (props) => {
     const [uploadedImages, setUploadedImages] = useState([]);
     const [activeCategories, setActiveCategories] = useState([]);
