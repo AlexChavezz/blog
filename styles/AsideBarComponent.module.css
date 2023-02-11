@@ -34,29 +34,6 @@
     margin: 10px 0px;
 
 }
-
-.createPostAsideContentCategoriesContainer 
-{
-    margin-top: 10px;
-    display: flex;
-    flex-wrap: wrap;
-}
-.createPostAsideContentCategory
-{
-    font-size: 13px;
-    padding: 5px;
-    border: .5px solid #ccc;
-    cursor:pointer;
-    margin: 5px;
-}
-.activeCategory
-{
-    font-size: 13px;
-    padding: 5px;
-    cursor:pointer;
-    margin: 5px;
-    background-color: #cccccc23;
-}
 .createPostAsideContentSecretKeyInput
 {
     padding: 5px;

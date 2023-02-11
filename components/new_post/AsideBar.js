@@ -3,18 +3,17 @@ import { URL_API } from '../../API/api';
 import { Button } from '../Button';
 import { ImageMdx } from './ImageMdx';
 import { UploadImage } from './UploadImage';
-import styles from '../../styles/AsideBarComponent.module.css'
 import { useForm } from '../../hooks/useForm';
+import { ToogleCategories } from '../ToogleCategories';
+import styles from '../../styles/AsideBarComponent.module.css'
 
-const categories = ['PROGRAMING', 'AWS', 'AZURE', 'GOOGLE CLOUD PLATFORM', 'OPERATING SYSTEMS', 'MONGODB', 'DATABASES', 'JAVASCRIPT', 'CLOUD'];
+
 export const AsideBar = (props) => {
     const [uploadedImages, setUploadedImages] = useState([]);
     const [activeCategories, setActiveCategories] = useState([]);
     const [{ SECRET_KEY }, handleInputChange, reset] = useForm({ SECRET_KEY: '' });
     const fileInputRef = useRef();
-    function addCategorie(category) {
-        setActiveCategories([...activeCategories, category]);
-    }
+  
     function selectInputImage() {
         fileInputRef.current.click();
     }
@@ -32,22 +31,6 @@ export const AsideBar = (props) => {
         catch (error) {
             throw new Error(error);
         }
-    }
-    function isIn(categoryInput) {
-        let flag = false;
-        activeCategories.forEach((category) => {
-            if (category === categoryInput) {
-                flag = true;
-            }
-        })
-        return flag;
-    }
-    function handleCategoryChange(category) {
-        if (isIn(category)) {
-            setActiveCategories(activeCategories.filter((activeCategory) => activeCategory !== category));
-            return;
-        }
-        addCategorie(category);
     }
     /*
         CREATE POST FUNCTION
@@ -105,20 +88,7 @@ export const AsideBar = (props) => {
             >
                 <h5>Categories</h5>
             </section>
-            <section
-                className={styles.createPostAsideContentCategoriesContainer}
-            >
-                {
-                    categories.map((category) =>
-                        <span
-                            className={isIn(category) ? styles.activeCategory : styles.createPostAsideContentCategory}
-                            onClick={() => handleCategoryChange(category)}
-                            key={category}
-                        >
-                            {category}
-                        </span>)
-                }
-            </section>
+            <ToogleCategories state={activeCategories} setState={setActiveCategories}/>
             <section
                 className={styles.createPostAsideContentUploadImage}
             >

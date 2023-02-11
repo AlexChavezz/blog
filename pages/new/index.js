@@ -61,7 +61,6 @@ export default function CreatePost() {
                 >
                     <form
                         className={styles.createPostForm}
-                    // onSubmit={onSubmit}
                     >
                         <input
                             type="text"

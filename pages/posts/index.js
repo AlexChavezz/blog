@@ -1,26 +1,36 @@
-// import { useState, useEffect, useContext } from 'react';
-import { ArticleTarget } from "../../components/ArticleTarget";
 import { useState } from "react";
+import { ArticleTarget } from "../../components/ArticleTarget";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { MainContent } from "../../components/MainContent";
-// import { CategoryasaParameter } from '../../context/CategoryasaParameter';
-import styles from '../../styles/Posts.module.css';
-import Head from "next/head";
 import { URL_API } from "../../API/api";
+import { Button } from "../../components/Button";
+import { ToogleCategories } from "../../components/ToogleCategories";
+import Head from "next/head";
+import styles from '../../styles/Posts.module.css';
 
 export default function Posts({ posts }) {
-    // const [activePosts, setActivePosts] = useState(posts);
-    // const [activePosts, setActivePosts] = useState();
-    // const { activeCategory, setActiveCategory } = useContext(CategoryasaParameter);
-    // useEffect(() => {
-    //     if (activeCategory === "ALL") {
-    //         setActivePosts(posts);
-    //     }
-    //     else {
-    //         setActivePosts(posts.filter(post => post.category.toUpperCase() === activeCategory));
-    //     }
-    // }, [activeCategory, posts])
+
+    const [filterModal, setFilterModal] = useState(false);
+    const [postList, setPostsList] = useState(posts);
+    function setFilter(categories = []) {
+        console.log(posts)
+        if (categories.length === 0) {
+            setPostsList(posts);
+            return
+        };
+        let res = [];
+        categories.forEach((category) => {
+            posts.forEach((post) => {
+                if (post.categories.includes(category)) {
+                    if (!res.includes(post)) {
+                        res = [...res, post];
+                    }
+                }
+            })
+        })
+        setPostsList(res);
+    }
 
     return (
         <>
@@ -31,46 +41,47 @@ export default function Posts({ posts }) {
             </Head>
             <Header />
             <MainContent>
-                 <section className={styles.postsContainer}>
-                    {/*SELECT A CATEGORY
-                    <form>
-                        <select
-                            className={styles.inputSelectCategory}
-                            // onChange={(e) => setActiveCategory(e.target.value)}
-                            // defaultValue={activeCategory}
-                        >
-                            <option value="ALL">TODOS</option>
-                            <option value="AWS">AWS</option>
-                            <option value="AZURE">AZURE</option>
-                            <option value="PROGRAMACIÓN">PROGRAMACIÓN</option>
-                            <option value="TECNOLOGÍA">TECNOLOGÍA</option>
-                            <option value="SO">SISTEMAS OPERATIVOS</option>
-                            <option value="GCP">GOOGLE CLOUD PLATFORM</option>
-                        </select>
-
-                    </form>
-                    <article className={styles.containerConcidences}>
-                        <h3 className={styles.coincidenceText}>COINCIDENCIAS PARA  {" "}</h3>
-                        <Category category={activeCategory} hiddeIcon/> 
-                    </article> */}
+                <section className={styles.postsContainer}>
+                    {
+                        !filterModal && <Button theme={'success'} text='FILTER' onSubmit={() => setFilterModal(!filterModal)} />
+                    }
                     <article>
                         {
-                            posts.map(post => <ArticleTarget {...post} key={post.postName} />)
+                            postList.map(post => <ArticleTarget {...post} key={post.postName} />)
                         }
                     </article>
                 </section>
+                {
+                    filterModal && <Aside setFilterModal={setFilterModal} setFilter={setFilter} />
+                }
             </MainContent>
             <Footer />
         </>
     );
 }
 
-export const getStaticProps = async () => {
-    // const posts = await getAllFilesMetadata();
-    // return {
-    //     props: { posts }
-    // }
+const Aside = ({ setFilterModal, setFilter }) => {
+    const [activeCategories, setActiveCategories] = useState([]);
+    function handleFilter() {
+        setFilter(activeCategories);
+    }
+    return (
+        <aside className={styles.PostsSearchBar}>
+            <h3>Filtro</h3>
+            <div className={styles.PostsSearchBarInputContainer}>
+                <ToogleCategories state={activeCategories} setState={setActiveCategories} />
+            </div>
+            <div
+                className={styles.PostsSearchBarButtonsContainer}
+            >
+                <Button theme={'success'} text='Filter' className={styles.PostsSearchBarButton} onSubmit={handleFilter} />
+                <Button theme={'danger'} text='Close' className={styles.PostsSearchBarButton} onSubmit={() => setFilterModal(false)} />
+            </div>
+        </aside>
+    );
+}
 
+export const getStaticProps = async () => {
     const data = await fetch(`${URL_API}/posts`);
     const posts = await data.json();
     return {
