@@ -6,3 +6,4 @@ PENDIENTES
 ENTRADAS
 
 - Conceptos básicos de mongoDB 01/01/2023
+- Brief Introduccion to mongoDB atlas 02/10/2023
