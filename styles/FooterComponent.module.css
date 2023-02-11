@@ -4,14 +4,13 @@
     justify-content: center;
     height: 160px;
     margin-bottom: 5px;
-    border-top: 2px solid #ccc;
 }
 
 .footerCopy {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 14px;
     line-height: 24px;
     margin: 0px;
     padding: 0px;
