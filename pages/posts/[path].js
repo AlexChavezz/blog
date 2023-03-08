@@ -144,10 +144,20 @@ export default function Post({ post }) {
                     <div className={styles.articleContent}>
                         <ReactMarkdown>{post.content}</ReactMarkdown>
                     </div>
+                    <div>
+                        <section
+                         className={styles.commentsContainer}
+                        >
+                            <h2 className={styles.commentsTitle}> RECOMMENDATIONS </h2>
+                                {
+                                    recommendations.map(element => <ArticleTarget {...element} key={element.date} />)
+                                }
+                        </section>
+                    </div>
                     <div
                         className={styles.commentsContainer}
                     >
-                        <h2 className={styles.commentsTitle}> RECOMMENDATIONS </h2>
+                        <h2 className={styles.commentsTitle}> COMENTARIOS </h2>
                         <section
                             className={styles.commentsSection}
                         >
@@ -155,12 +165,7 @@ export default function Post({ post }) {
                                 comments.map((comment) => <Comment {...comment} key={comment._id} postAsyncReply={postAsyncReply} />)
                             }
                         </section>
-                        <section>
-                            {
-                                recommendations.map(element => <ArticleTarget {...element} key={element.date} />)
-                            }
-                        </section>
-                        <h2 className={styles.commentsTitle}> COMENTARIOS </h2>
+                     
                         <section
                             className={styles.commentsFormContainer}
                         >

@@ -45,6 +45,15 @@
 /* .postsTitleContainer {
     background-color: red;
 } */
+
+@media (max-width: 1103px) {
+    .PostsSearchBar {
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        background-color: white;
+    }
+}
 @media (max-width: 888px) {
     .postsContainer {
         width: 100%;
@@ -66,6 +75,15 @@
 @media (max-width: 350px) {
     .containerConcidences {
         margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 442px) {
+    .PostsSearchBar {
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        background-color: white;
     }
 }
 

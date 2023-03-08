@@ -140,8 +140,8 @@
 
 @media (max-width: 442px) {
     .lastPostInfo {
-        width: 300px;
-        height: 133px;
+        width: 100%;
+        height: auto;
     }
     .mainImage {
         border-radius: 8px;
@@ -149,6 +149,7 @@
     .lastPostAuthor {
         bottom: 5px;
         left: 10px;
+        font-size: 10px;
     }
     .imageAuthor {
         bottom: 5px;
@@ -157,10 +158,12 @@
     .lastPostTitle {
         bottom: 30px;
         left: 10px;
+        font-size: 15px;
     }
     .lastPostcategory {
         top: 10px;
         left: 10px;
+        font-size: 10px;
     }
     .lastPostContainer {
         height: 200px;  
