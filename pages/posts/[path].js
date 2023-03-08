@@ -1,13 +1,14 @@
-import Head from "next/head";
-import styles from '../../styles/SlugPage.module.css';
 import { Header } from "../../components/Header";
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { Comment } from "../../components/Comment";
 import { Button } from "../../components/Button";
 import { useForm } from "../../hooks/useForm";
 import { URL_API } from "../../API/api";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import Image from "next/image";
+import Head from "next/head";
+import styles from '../../styles/SlugPage.module.css';
+import { ArticleTarget } from "../../components/ArticleTarget";
 
 // -> ![text](/imageToShow.jpg "title")
 
@@ -18,7 +19,7 @@ const commentInitialState = {
 const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
 export default function Post({ post }) {
     /* SUBMIT MAIN COMMENT */
-    const {current:postDate} = useRef( new Date(post.date) )
+    const {current: postDate} = useRef( new Date(post.date) )
     const [{ author,comment}, handleInputChnage, reset] = useForm(commentInitialState);
     const postAsyncComment = async(e) => {
         e.preventDefault();
@@ -58,13 +59,27 @@ export default function Post({ post }) {
     }    
     /*  REPLYES FUNCTINALITY */
     const [ comments, setComments ] = useState([]);
+    const [recommendations, setRecommendations] = useState([]);
     useEffect(() => {
         const getComments = async () => {
             const response = await fetch(`${URL_API}/comments/get/${post.postName}`);
             const data = await response.json();
             setComments(data);
         }
+        const getRecommendations = async () => {
+            const response = await fetch(`${URL_API}/posts/get/recommendations`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ categories: post.categories, _id: post._id })
+            });
+            const data = await response.json();
+            console.log(data)
+            setRecommendations(data.results);
+        }
         getComments();
+        getRecommendations();
     }, [post.postName]);
     const postSyncReply = (commentId, reply) => {
         setComments(comments.map((comment) => {
@@ -132,7 +147,7 @@ export default function Post({ post }) {
                     <div
                         className={styles.commentsContainer}
                     >
-                        <h2 className={styles.commentsTitle}> COMENTARIOS </h2>
+                        <h2 className={styles.commentsTitle}> RECOMMENDATIONS </h2>
                         <section
                             className={styles.commentsSection}
                         >
@@ -140,6 +155,12 @@ export default function Post({ post }) {
                                 comments.map((comment) => <Comment {...comment} key={comment._id} postAsyncReply={postAsyncReply} />)
                             }
                         </section>
+                        <section>
+                            {
+                                recommendations.map(element => <ArticleTarget {...element} key={element.date} />)
+                            }
+                        </section>
+                        <h2 className={styles.commentsTitle}> COMENTARIOS </h2>
                         <section
                             className={styles.commentsFormContainer}
                         >
